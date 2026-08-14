@@ -613,3 +613,9 @@ footer a:hover {
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
+/* Indicador visual de página atual */
+nav a.ativo,
+nav a[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid #ffffff;
+}
