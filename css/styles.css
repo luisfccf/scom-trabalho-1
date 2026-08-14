@@ -1,0 +1,301 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GLOBAIS E RESET
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth; /* Faz a rolagem deslizar suavemente até a seção */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f4f7fb;
+  color: #333333;
+  padding-top: 80px; /* Evita que a barra de navegação fixa cubra o conteúdo */
+  line-height: 1.6;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ==========================================================================
+   PASSO 1: BARRA DE NAVEGAÇÃO
+   ========================================================================== */
+header#topo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #e3350d; /* Vermelho clássico de Pokémon */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+}
+
+header#topo nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+header#topo nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  /* PASSO 6: Transição suave nos links */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* PASSO 4 & 6: Efeito Hover na navegação com transição */
+header#topo nav ul li a:hover {
+  background-color: #ffcb05; /* Amarelo Pokémon */
+  color: #1d2c5e;
+}
+
+/* ==========================================================================
+   PASSO 2: TÍTULO COM FONTE GRANDE E DESTACADA
+   ========================================================================== */
+header#topo h1 {
+  font-family: 'Press Start 2P', cursive, sans-serif;
+  font-size: 1.1rem;
+  color: #ffcb05; /* Amarelo Pokémon */
+  text-shadow: 2px 2px 0px #2a75bb, -2px -2px 0px #2a75bb, 2px -2px 0px #2a75bb, -2px 2px 0px #2a75bb; /* Contorno azul */
+}
+
+main h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  color: #1d2c5e;
+  border-bottom: 4px solid #e3350d;
+  padding-bottom: 8px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+main h3 {
+  color: #2a75bb;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   PASSO 3: IMAGENS RESPONSIVAS COM BORDA ARREDONDADA
+   ========================================================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px; /* Borda arredondada */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 5px;
+  /* PASSO 6: Transição suave ao passar o mouse na imagem */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* PASSO 4: Hover leve nas imagens */
+figure img:hover, table img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+}
+
+figure {
+  display: inline-block;
+  text-align: center;
+  margin: 15px 0;
+}
+
+figcaption {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Estilização para Iframe de vídeo */
+iframe {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   PASSO 4 & 6: BOTÕES COM HOVER E TRANSIÇÕES SUAVES
+   ========================================================================== */
+button, 
+input[type="submit"] {
+  background-color: #2a75bb; /* Azul Pokémon */
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  /* PASSO 6: Transição suave no botão */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* PASSO 4 & 6: Efeito Hover e Active nos Botões */
+button:hover, 
+input[type="submit"]:hover {
+  background-color: #1d2c5e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:active, 
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Links em geral com transição */
+a {
+  color: #2a75bb;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #e3350d;
+}
+
+/* ==========================================================================
+   PASSO 5: RODAPÉ COM CONTATO E LINKS DE REDES SOCIAIS
+   ========================================================================== */
+footer {
+  background-color: #1d2c5e; /* Azul escuro */
+  color: #ffffff;
+  padding: 30px 20px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+footer hr {
+  display: none; /* Oculta a linha padrão do HTML */
+}
+
+footer p {
+  margin: 6px 0;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #ffcb05;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Estilização das Redes Sociais no Rodapé */
+.redes-sociais {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.redes-sociais a {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.redes-sociais a:hover {
+  background-color: #ffcb05;
+  color: #1d2c5e;
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   PASSO 7: CARROSSEL DE IMAGENS (CSS PURO)
+   ========================================================================== */
+/* Carrossel de 30 Imagens */
+.carrossel-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.carrossel-slides {
+  display: flex;
+  width: 3000%; /* 3000% para suportar 30 imagens de 100% cada */
+  animation: deslizarIniciais 60s infinite linear; /* Tempo de transição total: 60 segundos */
+}
+
+.carrossel-slides img {
+  width: 3.3333%; /* 100% / 30 imagens */
+  border-radius: 0;
+  object-fit: cover;
+}
+
+/* Animação para rodar todas as 30 imagens */
+@keyframes deslizarIniciais {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-96.6666%); } /* Para na última imagem antes de reiniciar */
+}
+/* ==========================================================================
+   ESTILOS COMPLEMENTARES DA PÁGINA (Tabelas, Formulários e Sections)
+   ========================================================================== */
+section, aside {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+th {
+  background-color: #2a75bb;
+  color: white;
+}
+
+form p {
+  margin-bottom: 12px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 4px;
+  font-family: inherit;
+}
