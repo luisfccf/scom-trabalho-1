@@ -181,23 +181,35 @@ code {
   font-size: 0.9em;
 }
 
-/* Carrossel */
+/* ==========================================================================
+   CARROSSEL COM ROLAGEM AUTOMÁTICA E ARRASTE COM O MOUSE
+   ========================================================================== */
 .section-carrossel {
   background: var(--bg-surface);
   padding: 1.5rem;
   border-radius: var(--radius);
   border: 1px solid var(--border-color);
+  overflow: hidden;
 }
 
 .carrossel-container {
-  overflow-x: auto;
-  padding-bottom: 0.75rem;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.carrossel-container.arrastando {
+  cursor: grabbing;
 }
 
 .carrossel-slides {
   display: flex;
+  flex-wrap: nowrap;
   gap: 1.25rem;
-  align-items: center;
+  width: max-content;
 }
 
 .carrossel-slides img {
@@ -205,41 +217,13 @@ code {
   border-radius: var(--radius);
   border: 1px solid var(--border-color);
   padding: 8px;
+  flex-shrink: 0;
+  pointer-events: none;
   transition: transform var(--transition);
 }
 
 .carrossel-slides img:hover {
-  transform: scale(1.08);
-}
-
-/* Badges de Tipos */
-.tipo-badge {
-  color: #ffffff;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.badge-grama { background-color: var(--badge-grama); }
-.badge-fogo { background-color: var(--badge-fogo); }
-.badge-agua { background-color: var(--badge-agua); }
-.badge-eletrico { background-color: var(--badge-eletrico); }
-
-.destaque-marca {
-  color: var(--primary);
-}
-
-/* Figuras */
-figure {
-  margin: 1.5rem 0;
-  text-align: center;
-}
-
-figcaption {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 0.5rem;
+  transform: scale(1.1);
 }
 
 /* ==========================================================================
@@ -487,4 +471,11 @@ footer a:hover {
 
 .stats-list li {
   margin-bottom: 0.25rem;
+}
+/* Ajuste de visualização acima da dobra em desktop */
+@media (min-width: 1024px) {
+  main {
+    margin-top: 1rem;
+    gap: 2rem;
+  }
 }
