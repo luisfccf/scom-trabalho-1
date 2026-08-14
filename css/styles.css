@@ -479,3 +479,98 @@ footer a:hover {
     gap: 2rem;
   }
 }
+/* ==========================================================================
+   GRID DE INICIAIS POR REGIÃO & BADGES
+   ========================================================================== */
+.grid-regioes-iniciais {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .grid-regioes-iniciais {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-regioes-iniciais {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card-regiao {
+  background: var(--bg-body);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.card-regiao h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.card-regiao ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-regiao li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.glossario-container {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.glossario-container dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+}
+/* ==========================================================================
+   BADGES COLORIDOS PARA OS TIPOS
+   ========================================================================== */
+.tipo-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #ffffff; /* Texto branco para alto contraste */
+  min-width: 65px;
+  text-align: center;
+}
+
+/* Cores Acessíveis WCAG AA */
+.badge-grama {
+  background-color: #15803d; /* Verde escuro */
+}
+
+.badge-fogo {
+  background-color: #ea580c; /* Laranja vibrante */
+}
+
+.badge-agua {
+  background-color: #0284c7; /* Azul */
+}
+
+.badge-eletrico {
+  background-color: #ca8a04; /* Amarelo ouro */
+}
