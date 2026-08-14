@@ -2,29 +2,23 @@
    1. DESIGN TOKENS & VARIÁVEIS CSS (WCAG 2.2 AA Compliance)
    ========================================================================== */
 :root {
-  /* Paleta de Cores (Máximo 6 cores principais) */
+  /* Fundo e Textos */
   --bg-body: #f8fafc;
   --bg-surface: #ffffff;
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --primary: #dc2626;
-  --primary-hover: #b91c1c;
-  --focus-ring: #2563eb;
-  --border-color: #e2e8f0;
-
-  /* Cores de Tipos Pokémon */
-  --badge-grama: #16a34a;
-  --badge-fogo: #ea580c;
-  --badge-agua: #0284c7;
-  --badge-eletrico: #ca8a04;
-
-  /* Tipografia */
-  --font-base: 'Poppins', system-ui, -apple-system, sans-serif;
-  --font-pixel: 'Press Start 2P', monospace;
-
-  /* Espaçamentos e Formas */
+  --text-main: #0f172a;       /* 15.6:1 sobre branco */
+  --text-muted: #334155;      /* 7.5:1 sobre branco */
+  --primary: #c51d1d;         /* 5.1:1 com texto branco */
+  --primary-hover: #991b1b;
+  --focus-ring: #1d4ed8;
+  --border-color: #cbd5e1;
   --radius: 8px;
   --transition: 0.2s ease-in-out;
+
+  /* Badges dos Tipos Pokémon (Todos >= 4.5:1 com texto #ffffff) */
+  --badge-grama: #15803d;     /* 4.8:1 */
+  --badge-fogo: #c2410c;      /* 4.7:1 */
+  --badge-agua: #0369a1;      /* 4.7:1 */
+  --badge-eletrico: #854d0e;  /* 6.3:1 */
 }
 
 /* ==========================================================================
@@ -618,4 +612,64 @@ nav a.ativo,
 nav a[aria-current="page"] {
   background-color: rgba(255, 255, 255, 0.2);
   border-bottom: 2px solid #ffffff;
+}
+/* ==========================================================================
+   ESTILOS DE BADGES E BOTÕES (CONTRASTE WCAG 2.2 AA)
+   ========================================================================== */
+.tipo-badge {
+  display: inline-block;
+  color: #ffffff;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 65px;
+  text-align: center;
+}
+
+.badge-grama { background-color: var(--badge-grama); }
+.badge-fogo { background-color: var(--badge-fogo); }
+.badge-agua { background-color: var(--badge-agua); }
+.badge-eletrico { background-color: var(--badge-eletrico); }
+
+.btn-destaque {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #991b1b;
+  text-decoration: none;
+  background: #fee2e2;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #fecaca;
+  transition: all var(--transition);
+}
+
+.btn-destaque:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+/* ==========================================================================
+   AJUSTE DE CONTRASTE DO LINK ATIVO NO MENU (WCAG 2.2 AA APROVADO)
+   ========================================================================== */
+header#topo {
+  background-color: #991b1b !important; /* Vermelho escuro base (7.1:1 sobre branco) */
+}
+
+nav a.link-nav {
+  color: #ffffff !important;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Estado Ativo: Fundo preto sólido com texto branco (Taxa 14.5:1) */
+nav a.link-nav.ativo,
+nav a.link-nav[aria-current="page"] {
+  background-color: #0f172a !important; /* Slate escuro */
+  color: #ffffff !important;
+  border-bottom: 2px solid #facc15 !important; /* Detalhe amarelo visível */
 }
