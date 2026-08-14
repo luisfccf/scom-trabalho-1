@@ -8,9 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        // Rola descontando a altura do header fixo
+        const headerHeight = document.querySelector('header#topo')?.offsetHeight || 70;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+        
+        window.scrollTo({
+          top: elementPosition - headerHeight - 10,
+          behavior: 'smooth'
         });
       }
     });
