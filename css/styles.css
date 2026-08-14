@@ -1,301 +1,490 @@
 /* ==========================================================================
-   CONFIGURAÇÕES GLOBAIS E RESET
+   1. DESIGN TOKENS & VARIÁVEIS CSS (WCAG 2.2 AA Compliance)
    ========================================================================== */
+:root {
+  /* Paleta de Cores (Máximo 6 cores principais) */
+  --bg-body: #f8fafc;
+  --bg-surface: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --primary: #dc2626;
+  --primary-hover: #b91c1c;
+  --focus-ring: #2563eb;
+  --border-color: #e2e8f0;
 
-html {
-  scroll-behavior: smooth; /* Faz a rolagem deslizar suavemente até a seção */
+  /* Cores de Tipos Pokémon */
+  --badge-grama: #16a34a;
+  --badge-fogo: #ea580c;
+  --badge-agua: #0284c7;
+  --badge-eletrico: #ca8a04;
+
+  /* Tipografia */
+  --font-base: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-pixel: 'Press Start 2P', monospace;
+
+  /* Espaçamentos e Formas */
+  --radius: 8px;
+  --transition: 0.2s ease-in-out;
 }
 
-* {
+/* ==========================================================================
+   2. RESET & REGRAS GLOBAIS
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Poppins', Arial, sans-serif;
-  background-color: #f4f7fb;
-  color: #333333;
-  padding-top: 80px; /* Evita que a barra de navegação fixa cubra o conteúdo */
+  font-family: var(--font-base);
+  font-size: 1rem; /* 16px */
   line-height: 1.6;
+  color: var(--text-main);
+  background-color: var(--bg-body);
+  text-align: left;
 }
 
-main {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
+/* Skip Link para Usuários de Teclado (WCAG) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background: var(--primary);
+  color: #ffffff;
+  padding: 8px 16px;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: var(--radius);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* Foco Visível Obrigatório */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 /* ==========================================================================
-   PASSO 1: BARRA DE NAVEGAÇÃO
+   3. CABEÇALHO & NAVEGAÇÃO
    ========================================================================== */
 header#topo {
-  position: fixed;
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 1rem 1.5rem;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #e3350d; /* Vermelho clássico de Pokémon */
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 15px 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  z-index: 1000;
+  gap: 0.75rem;
 }
 
-header#topo nav ul {
-  list-style: none;
+header h1 {
+  font-family: var(--font-pixel);
+  font-size: 1.2rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+nav ul {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  gap: 1rem;
 }
 
-header#topo nav ul li a {
+nav a {
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
-  padding: 6px 12px;
+  font-size: 0.9rem;
+  padding: 4px 8px;
   border-radius: 4px;
-  /* PASSO 6: Transição suave nos links */
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color var(--transition);
 }
 
-/* PASSO 4 & 6: Efeito Hover na navegação com transição */
-header#topo nav ul li a:hover {
-  background-color: #ffcb05; /* Amarelo Pokémon */
-  color: #1d2c5e;
+nav a:hover {
+  background-color: var(--primary-hover);
 }
 
 /* ==========================================================================
-   PASSO 2: TÍTULO COM FONTE GRANDE E DESTACADA
+   4. CONTEÚDO PRINCIPAL (MAIN & SEÇÕES)
    ========================================================================== */
-header#topo h1 {
-  font-family: 'Press Start 2P', cursive, sans-serif;
-  font-size: 1.1rem;
-  color: #ffcb05; /* Amarelo Pokémon */
-  text-shadow: 2px 2px 0px #2a75bb, -2px -2px 0px #2a75bb, 2px -2px 0px #2a75bb, -2px 2px 0px #2a75bb; /* Contorno azul */
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
-main h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem;
-  color: #1d2c5e;
-  border-bottom: 4px solid #e3350d;
-  padding-bottom: 8px;
-  margin-top: 30px;
-  margin-bottom: 15px;
+.section-bloco {
+  background: var(--bg-surface);
+  padding: 1.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-main h3 {
-  color: #2a75bb;
-  margin-top: 15px;
-  margin-bottom: 10px;
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.3rem;
 }
 
-/* ==========================================================================
-   PASSO 3: IMAGENS RESPONSIVAS COM BORDA ARREDONDADA
-   ========================================================================== */
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px; /* Borda arredondada */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  padding: 5px;
-  /* PASSO 6: Transição suave ao passar o mouse na imagem */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+h3 {
+  font-size: 1.15rem;
+  margin: 1.25rem 0 0.5rem;
+  color: var(--text-main);
 }
 
-/* PASSO 4: Hover leve nas imagens */
-figure img:hover, table img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+p {
+  margin-bottom: 0.75rem;
+  max-width: 75ch; /* Limite ideal de 45-90 caracteres por linha */
 }
 
+blockquote {
+  border-left: 4px solid var(--primary);
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-body);
+  font-style: italic;
+}
+
+code {
+  background: #e2e8f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+/* Carrossel */
+.section-carrossel {
+  background: var(--bg-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+}
+
+.carrossel-container {
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+}
+
+.carrossel-slides {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.carrossel-slides img {
+  background: var(--bg-body);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  transition: transform var(--transition);
+}
+
+.carrossel-slides img:hover {
+  transform: scale(1.08);
+}
+
+/* Badges de Tipos */
+.tipo-badge {
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge-grama { background-color: var(--badge-grama); }
+.badge-fogo { background-color: var(--badge-fogo); }
+.badge-agua { background-color: var(--badge-agua); }
+.badge-eletrico { background-color: var(--badge-eletrico); }
+
+.destaque-marca {
+  color: var(--primary);
+}
+
+/* Figuras */
 figure {
-  display: inline-block;
+  margin: 1.5rem 0;
   text-align: center;
-  margin: 15px 0;
 }
 
 figcaption {
   font-size: 0.85rem;
-  color: #666;
-  margin-top: 5px;
-}
-
-/* Estilização para Iframe de vídeo */
-iframe {
-  max-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
 }
 
 /* ==========================================================================
-   PASSO 4 & 6: BOTÕES COM HOVER E TRANSIÇÕES SUAVES
+   5. TABELAS DE DADOS & DETAILS
    ========================================================================== */
-button, 
-input[type="submit"] {
-  background-color: #2a75bb; /* Azul Pokémon */
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+details {
+  background: var(--bg-body);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+summary {
+  padding: 0.85rem 1.25rem;
   font-weight: 600;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
   cursor: pointer;
-  /* PASSO 6: Transição suave no botão */
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  background: #ffffff;
+  border-bottom: 1px solid transparent;
 }
 
-/* PASSO 4 & 6: Efeito Hover e Active nos Botões */
-button:hover, 
-input[type="submit"]:hover {
-  background-color: #1d2c5e;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+details[open] summary {
+  border-bottom: 1px solid var(--border-color);
+  color: var(--primary);
 }
 
-button:active, 
-input[type="submit"]:active {
-  transform: translateY(0);
-}
-
-/* Links em geral com transição */
-a {
-  color: #2a75bb;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #e3350d;
-}
-
-/* ==========================================================================
-   PASSO 5: RODAPÉ COM CONTATO E LINKS DE REDES SOCIAIS
-   ========================================================================== */
-footer {
-  background-color: #1d2c5e; /* Azul escuro */
-  color: #ffffff;
-  padding: 30px 20px;
-  margin-top: 50px;
+.tabela-pokemon {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
   text-align: center;
 }
 
-footer hr {
-  display: none; /* Oculta a linha padrão do HTML */
+.tabela-pokemon caption {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
 }
 
-footer p {
-  margin: 6px 0;
+.tabela-pokemon th, 
+.tabela-pokemon td {
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  vertical-align: middle;
+}
+
+.tabela-pokemon th {
+  background-color: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.tabela-pokemon td {
+  background-color: #ffffff;
+}
+
+.video-container {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-container iframe {
+  max-width: 100%;
+  border-radius: var(--radius);
+  border: none;
+}
+
+/* ==========================================================================
+   6. ASIDE & FORMULÁRIOS
+   ========================================================================== */
+.curiosidades-box {
+  background: #fef2f2;
+  border-left: 4px solid var(--primary);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+}
+
+.formulario-treinador {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.campo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo-form label {
+  font-weight: 600;
   font-size: 0.9rem;
 }
 
-footer a {
-  color: #ffcb05;
-  text-decoration: none;
+.campo-form input,
+.campo-form select,
+.campo-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.btn-primario {
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
   font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color var(--transition);
+  align-self: flex-start;
+}
+
+.btn-primario:hover {
+  background: var(--primary-hover);
+}
+
+/* ==========================================================================
+   7. RODAPÉ
+   ========================================================================== */
+footer {
+  background: #0f172a;
+  color: #cbd5e1;
+  padding: 2rem 1.25rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+footer p {
+  max-width: 100%;
+  margin-bottom: 0.4rem;
+}
+
+footer a {
+  color: #38bdf8;
+  text-decoration: none;
 }
 
 footer a:hover {
   text-decoration: underline;
 }
 
-/* Estilização das Redes Sociais no Rodapé */
-.redes-sociais {
-  margin: 15px 0;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+/* ==========================================================================
+   8. RESPONSIVIDADE (BREAKPOINTS)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  .bloco-listas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+/* ==========================================================================
+   9. GRID E CARDS DA POKÉDEX (pokedex.html)
+   ========================================================================== */
+.pokedex-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
-.redes-sociais a {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 8px 15px;
-  border-radius: 20px;
-  color: #ffffff;
+@media (min-width: 640px) {
+  .pokedex-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pokedex-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pokemon-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.pokemon-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.pokemon-id {
   font-size: 0.85rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: 700;
+  color: var(--text-muted);
 }
 
-.redes-sociais a:hover {
-  background-color: #ffcb05;
-  color: #1d2c5e;
-  transform: translateY(-3px);
+.card-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
 }
 
-/* ==========================================================================
-   PASSO 7: CARROSSEL DE IMAGENS (CSS PURO)
-   ========================================================================== */
-/* Carrossel de 30 Imagens */
-.carrossel-container {
+.card-body {
   width: 100%;
-  max-width: 500px;
-  margin: 20px auto;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  position: relative;
 }
 
-.carrossel-slides {
-  display: flex;
-  width: 3000%; /* 3000% para suportar 30 imagens de 100% cada */
-  animation: deslizarIniciais 60s infinite linear; /* Tempo de transição total: 60 segundos */
+.tags-container {
+  margin: 0.5rem 0 1rem;
 }
 
-.carrossel-slides img {
-  width: 3.3333%; /* 100% / 30 imagens */
-  border-radius: 0;
-  object-fit: cover;
+.stats-list {
+  list-style: none;
+  background: var(--bg-body);
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  text-align: left;
 }
 
-/* Animação para rodar todas as 30 imagens */
-@keyframes deslizarIniciais {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-96.6666%); } /* Para na última imagem antes de reiniciar */
-}
-/* ==========================================================================
-   ESTILOS COMPLEMENTARES DA PÁGINA (Tabelas, Formulários e Sections)
-   ========================================================================== */
-section, aside {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff;
-  margin-top: 10px;
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
-}
-
-th {
-  background-color: #2a75bb;
-  color: white;
-}
-
-form p {
-  margin-bottom: 12px;
-}
-
-input[type="text"],
-input[type="email"],
-select,
-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-top: 4px;
-  font-family: inherit;
+.stats-list li {
+  margin-bottom: 0.25rem;
 }

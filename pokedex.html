@@ -1,27 +1,133 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokédex - Mundo Pokémon</title>
-  <link rel="stylesheet" href="css/styles.css"><!-- Usa o mesmo estilo CSS do seu site -->
-</head>
-<body>
-  <header id="topo">
-    <h1>Pokédex</h1>
-    <nav>
-      <ul>
-        <!-- Link para voltar ao seu site principal -->
-        <li><a href="index.html">Voltar ao Início</a></li>
-      </ul>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex - Catálogo Técnico</title>
 
-  <main>
-    <section>
-      <h2>Em breve: Lista de Pokémons</h2>
-      <p>Esta é a sua nova página de Pokédex!</p>
-    </section>
-  </main>
-</body>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+    <!-- CSS Integrado -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Skip Link para Teclado -->
+    <a href="#pokedex-content" class="skip-link">Pular para a lista de Pokémons</a>
+
+    <!-- Header Semântico -->
+    <header id="topo">
+      <div class="header-container">
+        <h1>Pokédex</h1>
+        <nav aria-label="Navegação do catálogo">
+          <ul>
+            <li><a href="index.html">Voltar ao Início</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main id="pokedex-content">
+      <section class="section-bloco">
+        <h2>Catálogo de Espécies</h2>
+        <p>Consulte as especificações biométricas e de combate dos espécimes catalogados:</p>
+
+        <!-- Grid de Cards Semânticos -->
+        <div class="pokedex-grid">
+          <!-- Bulbasaur -->
+          <article class="pokemon-card">
+            <header class="card-header">
+              <span class="pokemon-id">#0001</span>
+              <h3>Bulbasaur</h3>
+            </header>
+            <figure>
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bulbasaur" width="140" height="140" loading="lazy" />
+            </figure>
+            <div class="card-body">
+              <div class="tags-container">
+                <span class="tipo-badge badge-grama">Planta</span>
+              </div>
+              <ul class="stats-list">
+                <li><strong>HP:</strong> 45</li>
+                <li><strong>Ataque:</strong> 49</li>
+                <li><strong>Defesa:</strong> 49</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Charmander -->
+          <article class="pokemon-card">
+            <header class="card-header">
+              <span class="pokemon-id">#0004</span>
+              <h3>Charmander</h3>
+            </header>
+            <figure>
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="Charmander" width="140" height="140" loading="lazy" />
+            </figure>
+            <div class="card-body">
+              <div class="tags-container">
+                <span class="tipo-badge badge-fogo">Fogo</span>
+              </div>
+              <ul class="stats-list">
+                <li><strong>HP:</strong> 39</li>
+                <li><strong>Ataque:</strong> 52</li>
+                <li><strong>Defesa:</strong> 43</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Squirtle -->
+          <article class="pokemon-card">
+            <header class="card-header">
+              <span class="pokemon-id">#0007</span>
+              <h3>Squirtle</h3>
+            </header>
+            <figure>
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png" alt="Squirtle" width="140" height="140" loading="lazy" />
+            </figure>
+            <div class="card-body">
+              <div class="tags-container">
+                <span class="tipo-badge badge-agua">Água</span>
+              </div>
+              <ul class="stats-list">
+                <li><strong>HP:</strong> 44</li>
+                <li><strong>Ataque:</strong> 48</li>
+                <li><strong>Defesa:</strong> 65</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Pikachu -->
+          <article class="pokemon-card">
+            <header class="card-header">
+              <span class="pokemon-id">#0025</span>
+              <h3>Pikachu</h3>
+            </header>
+            <figure>
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu" width="140" height="140" loading="lazy" />
+            </figure>
+            <div class="card-body">
+              <div class="tags-container">
+                <span class="tipo-badge badge-eletrico">Elétrico</span>
+              </div>
+              <ul class="stats-list">
+                <li><strong>HP:</strong> 35</li>
+                <li><strong>Ataque:</strong> 55</li>
+                <li><strong>Defesa:</strong> 40</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+      <p><strong>Pokédex Modular:</strong> Consulta de Parâmetros</p>
+      <p><a href="#topo">Retornar ao topo da página</a></p>
+    </footer>
+  </body>
 </html>
