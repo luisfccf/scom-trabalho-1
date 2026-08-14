@@ -30,7 +30,7 @@
             <li><a href="#iniciais">Iniciais</a></li>
             <li><a href="#tabela-stats">Atributos</a></li>
             <li><a href="#contato">Cadastro</a></li>
-            <li><a href="pokedex.html">Pokédex</a></li>
+            <li><a href="pokedex.html" target="_blank" rel="noopener noreferrer">Pokédex</a></li>
           </ul>
         </nav>
       </div>
@@ -83,11 +83,6 @@
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/813.png" alt="Scorbunny - Galar" width="120" height="120" loading="lazy" />
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/816.png" alt="Sobble - Galar" width="120" height="120" loading="lazy" />
 
-            <!-- Hisui -->
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/722.png" alt="Rowlet - Hisui" width="120" height="120" loading="lazy" />
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png" alt="Cyndaquil - Hisui" width="120" height="120" loading="lazy" />
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/501.png" alt="Oshawott - Hisui" width="120" height="120" loading="lazy" />
-
             <!-- Paldea -->
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/906.png" alt="Sprigatito - Paldea" width="120" height="120" loading="lazy" />
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/909.png" alt="Fuecoco - Paldea" width="120" height="120" loading="lazy" />
@@ -117,42 +112,139 @@
         </figure>
       </section>
 
-      <!-- Seção: Tipos e Iniciais -->
+      <!-- Seção: Tipos e Iniciais de Todas as Regiões -->
       <section id="iniciais" class="section-bloco">
-        <h2>Classificação dos Iniciais Clássicos</h2>
+        <h2>Classificação dos Iniciais por Região</h2>
         
-        <div class="bloco-listas">
-          <h3>Iniciais de Kanto</h3>
-          <ol>
-            <li><span class="tipo-badge badge-grama">Planta:</span> Bulbasaur</li>
-            <li><span class="tipo-badge badge-fogo">Fogo:</span> Charmander</li>
-            <li><span class="tipo-badge badge-agua">Água:</span> Squirtle</li>
-            <li><span class="tipo-badge badge-eletrico">Elétrico:</span> Pikachu</li>
-          </ol>
+        <div class="grid-regioes-iniciais">
+          <!-- Kanto -->
+          <div class="card-regiao">
+            <div class="card-regiao-header">
+              <h3>Kanto</h3>
+              <a href="pokedex.html#pikachu" target="_blank" rel="noopener noreferrer" class="btn-destaque">Ver Popular ➔</a>
+            </div>
+            <ul>
+              <li><span class="tipo-badge badge-grama">Planta</span> Bulbasaur</li>
+              <li><span class="tipo-badge badge-fogo">Fogo</span> Charmander</li>
+              <li><span class="tipo-badge badge-agua">Água</span> Squirtle</li>
+              <li><span class="tipo-badge badge-eletrico">Elétrico</span> Pikachu</li>
+            </ul>
+          </div>
+
+          <!-- Johto -->
+          <div class="card-regiao">
+            <div class="card-regiao-header">
+              <h3>Johto</h3>
+              <a href="pokedex.html#cyndaquil" target="_blank" rel="noopener noreferrer" class="btn-destaque">Ver Popular ➔</a>
+            </div>
+            <ul>
+              <li><span class="tipo-badge badge-grama">Planta</span> Chikorita</li>
+              <li><span class="tipo-badge badge-fogo">Fogo</span> Cyndaquil</li>
+              <li><span class="tipo-badge badge-agua">Água</span> Totodile</li>
+            </ul>
+          </div>
+
+          <!-- Hoenn -->
+          <div class="card-regiao">
+            <div class="card-regiao-header">
+              <h3>Hoenn</h3>
+              <a href="pokedex.html#mudkip" target="_blank" rel="noopener noreferrer" class="btn-destaque">Ver Popular ➔</a>
+            </div>
+            <ul>
+              <li><span class="tipo-badge badge-grama">Planta</span> Treecko</li>
+              <li><span class="tipo-badge badge-fogo">Fogo</span> Torchic</li>
+              <li><span class="tipo-badge badge-agua">Água</span> Mudkip</li>
+            </ul>
+          </div>
+
+          <!-- Sinnoh -->
+          <div class="card-regiao">
+            <div class="card-regiao-header">
+              <h3>Sinnoh</h3>
+              <a href="pokedex.html#lucario" target="_blank" rel="noopener noreferrer" class="btn-destaque">Ver Popular ➔</a>
+            </div>
+            <ul>
+              <li><span class="tipo-badge badge-grama">Planta</span> Turtwig</li>
+              <li><span class="tipo-badge badge-fogo">Fogo</span> Chimchar</li>
+              <li><span class="tipo-badge badge-agua">Água</span> Piplup</li>
+            </ul>
+          </div>
+
+          <!-- Unova -->
+          <div class="card-regiao">
+            <div class="card-regiao-header">
+              <h3>Unova</h3>
+              <a href="pokedex.html#zoroark" target="_blank" rel="noopener noreferrer" class="btn-destaque">Ver Popular ➔</a>
+            </div>
+            <ul>
+              <li><span class="tipo-badge badge-grama">Planta</span> Snivy</li>
+              <li><span class="tipo-badge badge-fogo">Fogo</span> Tepig</li>
+              <li><span class="tipo-badge badge-agua">Água</span> Oshawott</li>
+            </ul>
+          </div>
+
+          <!-- Kalos -->
+          <div class="card-regiao">
+            <div class="card-regiao-header">
+              <h3>Kalos</h3>
+              <a href="pokedex.html#greninja" target="_blank" rel="noopener noreferrer" class="btn-destaque">Ver Popular ➔</a>
+            </div>
+            <ul>
+              <li><span class="tipo-badge badge-grama">Planta</span> Chespin</li>
+              <li><span class="tipo-badge badge-fogo">Fogo</span> Fennekin</li>
+              <li><span class="tipo-badge badge-agua">Água</span> Froakie</li>
+            </ul>
+          </div>
+
+          <!-- Alola -->
+          <div class="card-regiao">
+            <div class="card-regiao-header">
+              <h3>Alola</h3>
+              <a href="pokedex.html#mimikyu" target="_blank" rel="noopener noreferrer" class="btn-destaque">Ver Popular ➔</a>
+            </div>
+            <ul>
+              <li><span class="tipo-badge badge-grama">Planta</span> Rowlet</li>
+              <li><span class="tipo-badge badge-fogo">Fogo</span> Litten</li>
+              <li><span class="tipo-badge badge-agua">Água</span> Popplio</li>
+            </ul>
+          </div>
+
+          <!-- Galar -->
+          <div class="card-regiao">
+            <div class="card-regiao-header">
+              <h3>Galar</h3>
+              <a href="pokedex.html#dragapult" target="_blank" rel="noopener noreferrer" class="btn-destaque">Ver Popular ➔</a>
+            </div>
+            <ul>
+              <li><span class="tipo-badge badge-grama">Planta</span> Grookey</li>
+              <li><span class="tipo-badge badge-fogo">Fogo</span> Scorbunny</li>
+              <li><span class="tipo-badge badge-agua">Água</span> Sobble</li>
+            </ul>
+          </div>
+
+          <!-- Paldea -->
+          <div class="card-regiao">
+            <div class="card-regiao-header">
+              <h3>Paldea</h3>
+              <a href="pokedex.html#meowscarada" target="_blank" rel="noopener noreferrer" class="btn-destaque">Ver Popular ➔</a>
+            </div>
+            <ul>
+              <li><span class="tipo-badge badge-grama">Planta</span> Sprigatito</li>
+              <li><span class="tipo-badge badge-fogo">Fogo</span> Fuecoco</li>
+              <li><span class="tipo-badge badge-agua">Água</span> Quaxly</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="bloco-listas">
-          <h3>Regiões Principais</h3>
-          <ul>
-            <li>Kanto</li>
-            <li>Johto</li>
-            <li>Hoenn</li>
-            <li>Sinnoh</li>
-            <li>Unova</li>
-            <li>Kalos</li>
-            <li>Alola</li>
-            <li>Galar</li>
-            <li>Paldea</li>
-          </ul>
+        <div class="glossario-container">
+          <h3>Glossário Básico</h3>
+          <dl>
+            <dt><strong>Pokébola:</strong></dt>
+            <dd>Dispositivo eletromecânico utilizado para contenção e transporte seguro.</dd>
+            <dt><strong>Insígnia:</strong></dt>
+            <dd>Condecoração concedida por Líderes de Ginásio aos treinadores aprovados.</dd>
+          </dl>
         </div>
-
-        <h3>Glossário Básico</h3>
-        <dl>
-          <dt><strong>Pokébola</strong></dt>
-          <dd>Dispositivo eletromecânico utilizado para contenção e transporte seguro.</dd>
-          <dt><strong>Insígnia</strong></dt>
-          <dd>Condecoração concedida por Líderes de Ginásio aos treinadores aprovados.</dd>
-        </dl>
       </section>
 
       <!-- Seção: Tabelas de Atributos das 9 Regiões -->

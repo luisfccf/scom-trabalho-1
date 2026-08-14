@@ -574,3 +574,42 @@ footer a:hover {
 .badge-eletrico {
   background-color: #ca8a04; /* Amarelo ouro */
 }
+/* ==========================================================================
+   BOTÃO DE DESTAQUE REGIONAL & ANIMAÇÃO DE ÂNCORA NA POKÉDEX
+   ========================================================================== */
+.card-regiao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.btn-destaque {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  background: #fee2e2;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #fecaca;
+  transition: all var(--transition);
+}
+
+.btn-destaque:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+/* Efeito visual quando o card for focado via âncora URL (#id) */
+:target {
+  animation: pulseCard 1.5s ease-in-out;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3) !important;
+}
+
+@keyframes pulseCard {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
