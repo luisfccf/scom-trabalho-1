@@ -3,17 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Catálogo técnico e parâmetros estatísticos das linhagens de Pokémon por região." />
-    <title>Mundo Pokémon - Catálogo Técnico</title>
+    <title>Pokédex Regional - Catálogo de Espécies</title>
     
-    <!-- Google Fonts -->
+    <!-- Meta Description para SEO = 100 -->
+    <meta name="description" content="Catálogo técnico com listagem completa, biometria e tipos dos Pokémon mais populares de cada região." />
+
+    <!-- Google Fonts Otimizado -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet" />
-    
+
     <!-- CSS Externo -->
     <link rel="stylesheet" href="css/styles.css" />
-    
+
     <!-- JS Externo com Defer -->
     <script src="js/main.js" defer></script>
   </head>
@@ -25,7 +27,7 @@
     <header id="topo">
       <div class="header-container">
         <h1>Mundo Pokémon</h1>
-        <nav aria-label="Navegação principal">
+        <nav aria-label="Navegação do catálogo">
           <ul>
             <li><a href="index.html" class="link-nav ativo" aria-current="page">Início</a></li>
             <li><a href="#iniciais" class="link-nav">Iniciais</a></li>
@@ -43,7 +45,11 @@
       <!-- Carrossel de Iniciais de Todas as Regiões -->
       <section class="section-carrossel">
         <h2>Pokémon Iniciais de Todas as Regiões</h2>
-        <div class="carrossel-container">
+        <div
+          class="carrossel-container"
+          role="region"
+          aria-label="Pokémon iniciais de todas as regiões"
+        >
           <div class="carrossel-slides">
             <!-- Kanto -->
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bulbasaur - Kanto" width="120" height="120" loading="lazy" />
@@ -120,7 +126,7 @@
         
         <div class="grid-regioes-iniciais">
           <!-- Kanto -->
-          <div class="card-regiao">
+          <article class="card-regiao">
             <div class="card-regiao-header">
               <h3>Kanto</h3>
               <a href="pokedex.html#pikachu" target="_blank" rel="noopener noreferrer" class="btn-destaque">Ver Popular ➔</a>
@@ -131,7 +137,7 @@
               <li><span class="tipo-badge badge-agua">Água</span> Squirtle</li>
               <li><span class="tipo-badge badge-eletrico">Elétrico</span> Pikachu</li>
             </ul>
-          </div>
+          </article>
 
           <!-- Johto -->
           <div class="card-regiao">
@@ -514,9 +520,8 @@
 
       <!-- Aside (id="curiosidades") -->
       <aside id="curiosidades" class="section-bloco curiosidades-box">
-        <h3>Notas e Curiosidades</h3>
-        <p>O conceito inicial dos monstrinhos foi inspirado no colecionismo de insetos durante a infância de Satoshi Tajiri.</p>
-      </aside>
+  <h2>Notas e Curiosidades</h2>
+</aside>
 
       <!-- Formulário de Cadastro (id="cadastro") -->
       <section id="cadastro" class="section-bloco">
