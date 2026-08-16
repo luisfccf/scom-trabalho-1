@@ -1,80 +1,215 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Rolagem suave para links internos do menu
-  const menuLinks = document.querySelectorAll('header nav a[href^="#"]');
-  menuLinks.forEach((link) => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
+  const preferenciaMovimentoReduzido = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  );
 
-      if (targetElement) {
-        // Rola descontando a altura do header fixo
-        const headerHeight = document.querySelector('header#topo')?.offsetHeight || 70;
-        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-        
-        window.scrollTo({
-          top: elementPosition - headerHeight - 10,
-          behavior: 'smooth'
-        });
+  /*
+   * 1. Rolagem dos links internos do menu
+   */
+  const menuLinks = document.querySelectorAll(
+    'header nav a[href^="#"]'
+  );
+
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', (evento) => {
+      evento.preventDefault();
+
+      const destinoId = link.getAttribute('href');
+      const destino = document.querySelector(destinoId);
+
+      if (!destino) {
+        return;
       }
+
+      const cabecalho = document.querySelector('header#topo');
+      const alturaCabecalho = cabecalho?.offsetHeight || 70;
+      const posicaoDestino =
+        destino.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: posicaoDestino - alturaCabecalho - 10,
+        behavior: preferenciaMovimentoReduzido.matches
+          ? 'auto'
+          : 'smooth'
+      });
+
+      destino.setAttribute('tabindex', '-1');
+      destino.focus({ preventScroll: true });
     });
   });
 
-  // 2. Carrossel com Limites Físicos (Início e Fim travam) + Arraste
-  const slider = document.querySelector('.carrossel-container');
+  /*
+   * 2. Carrossel acessível
+   */
+  const carrossel = document.querySelector('#carrossel-iniciais');
+  const botaoAnterior = document.querySelector(
+    '#carrossel-anterior'
+  );
+  const botaoProximo = document.querySelector(
+    '#carrossel-proximo'
+  );
+  const botaoPausar = document.querySelector(
+    '#carrossel-pausar'
+  );
 
-  if (slider) {
-    let isDown = false;
-    let startX = 0;
-    let scrollLeft = 0;
-    let isHovered = false;
+  if (
+    !carrossel ||
+    !botaoAnterior ||
+    !botaoProximo ||
+    !botaoPausar
+  ) {
+    return;
+  }
 
-    // Rolagem automática linear suave até bater no fim
-    function autoScroll() {
-      if (!isDown && !isHovered) {
-        const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
-        
-        // Rola até o limite final à direita e para
-        if (slider.scrollLeft < maxScrollLeft) {
-          slider.scrollLeft += 1;
-        }
-      }
-      requestAnimationFrame(autoScroll);
-    }
-    requestAnimationFrame(autoScroll);
+  let estaArrastando = false;
+  let posicaoInicialX = 0;
+  let rolagemInicial = 0;
+  let ponteiroSobreCarrossel = false;
+  let carrosselComFoco = false;
+  let animacaoPausada = false;
 
-    // Pausa a rolagem automática se o mouse estiver sobre o carrossel
-    slider.addEventListener('mouseenter', () => {
-      isHovered = true;
-    });
+  function obterDistanciaRolagem() {
+    return Math.max(200, carrossel.clientWidth * 0.8);
+  }
 
-    slider.addEventListener('mouseleave', () => {
-      isHovered = false;
-      isDown = false;
-      slider.classList.remove('arrastando');
-    });
+  function obterComportamentoRolagem() {
+    return preferenciaMovimentoReduzido.matches
+      ? 'auto'
+      : 'smooth';
+  }
 
-    // Clique e Arraste com limites rígidos nas duas pontas
-    slider.addEventListener('mousedown', (e) => {
-      isDown = true;
-      slider.classList.add('arrastando');
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener('mouseup', () => {
-      isDown = false;
-      slider.classList.remove('arrastando');
-    });
-
-    slider.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      
-      // Atualiza a posição respeitando os limites naturais (0 e maxScroll)
-      slider.scrollLeft = scrollLeft - walk;
+  function rolarParaAnterior() {
+    carrossel.scrollBy({
+      left: -obterDistanciaRolagem(),
+      behavior: obterComportamentoRolagem()
     });
   }
+
+  function rolarParaProximo() {
+    carrossel.scrollBy({
+      left: obterDistanciaRolagem(),
+      behavior: obterComportamentoRolagem()
+    });
+  }
+
+  /*
+   * 3. Botões anterior, próximo e pausar
+   */
+  botaoAnterior.addEventListener('click', rolarParaAnterior);
+  botaoProximo.addEventListener('click', rolarParaProximo);
+
+  botaoPausar.addEventListener('click', () => {
+    animacaoPausada = !animacaoPausada;
+
+    botaoPausar.setAttribute(
+      'aria-pressed',
+      String(animacaoPausada)
+    );
+
+    botaoPausar.textContent = animacaoPausada
+      ? 'Continuar animação'
+      : 'Pausar animação';
+  });
+
+  /*
+   * 4. Controles pelas setas do teclado
+   */
+  carrossel.addEventListener('keydown', (evento) => {
+    if (evento.key === 'ArrowLeft') {
+      evento.preventDefault();
+      rolarParaAnterior();
+    }
+
+    if (evento.key === 'ArrowRight') {
+      evento.preventDefault();
+      rolarParaProximo();
+    }
+  });
+
+  /*
+   * 5. Pausa automática quando o carrossel recebe foco
+   */
+  carrossel.addEventListener('focusin', () => {
+    carrosselComFoco = true;
+  });
+
+  carrossel.addEventListener('focusout', () => {
+    carrosselComFoco = false;
+  });
+
+  /*
+   * 6. Pausa quando o mouse está sobre o carrossel
+   */
+  carrossel.addEventListener('mouseenter', () => {
+    ponteiroSobreCarrossel = true;
+  });
+
+  carrossel.addEventListener('mouseleave', () => {
+    ponteiroSobreCarrossel = false;
+    estaArrastando = false;
+    carrossel.classList.remove('arrastando');
+  });
+
+  /*
+   * 7. Arraste com o mouse
+   */
+  carrossel.addEventListener('mousedown', (evento) => {
+    estaArrastando = true;
+    posicaoInicialX = evento.pageX - carrossel.offsetLeft;
+    rolagemInicial = carrossel.scrollLeft;
+
+    carrossel.classList.add('arrastando');
+  });
+
+  carrossel.addEventListener('mouseup', () => {
+    estaArrastando = false;
+    carrossel.classList.remove('arrastando');
+  });
+
+  carrossel.addEventListener('mousemove', (evento) => {
+    if (!estaArrastando) {
+      return;
+    }
+
+    evento.preventDefault();
+
+    const posicaoAtualX =
+      evento.pageX - carrossel.offsetLeft;
+
+    const deslocamento =
+      (posicaoAtualX - posicaoInicialX) * 1.5;
+
+    carrossel.scrollLeft =
+      rolagemInicial - deslocamento;
+  });
+
+  /*
+   * 8. Rolagem automática
+   */
+  function executarRolagemAutomatica() {
+    const limiteMaximo =
+      carrossel.scrollWidth - carrossel.clientWidth;
+
+    const podeMovimentar =
+      !preferenciaMovimentoReduzido.matches &&
+      !animacaoPausada &&
+      !estaArrastando &&
+      !ponteiroSobreCarrossel &&
+      !carrosselComFoco;
+
+    if (
+      podeMovimentar &&
+      carrossel.scrollLeft < limiteMaximo
+    ) {
+      carrossel.scrollLeft += 1;
+    }
+
+    window.requestAnimationFrame(
+      executarRolagemAutomatica
+    );
+  }
+
+  window.requestAnimationFrame(
+    executarRolagemAutomatica
+  );
 });

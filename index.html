@@ -44,13 +44,45 @@
     <main id="main-content">
       <!-- Carrossel de Iniciais de Todas as Regiões -->
       <section class="section-carrossel">
-        <h2>Pokémon Iniciais de Todas as Regiões</h2>
-        <div
-          class="carrossel-container"
-          role="region"
-          aria-label="Pokémon iniciais de todas as regiões"
-        >
-          <div class="carrossel-slides">
+  <h2>Pokémon Iniciais de Todas as Regiões</h2>
+
+  <!-- Controles acessíveis do carrossel -->
+  <div class="carrossel-controles" aria-label="Controles do carrossel">
+    <button
+      type="button"
+      id="carrossel-anterior"
+      aria-controls="carrossel-iniciais"
+    >
+      ← Anterior
+    </button>
+
+    <button
+      type="button"
+      id="carrossel-pausar"
+      aria-controls="carrossel-iniciais"
+      aria-pressed="false"
+    >
+      Pausar animação
+    </button>
+
+    <button
+      type="button"
+      id="carrossel-proximo"
+      aria-controls="carrossel-iniciais"
+    >
+      Próximo →
+    </button>
+  </div>
+
+  <!-- Área que contém as imagens -->
+  <div
+    id="carrossel-iniciais"
+    class="carrossel-container"
+    role="region"
+    aria-label="Pokémon iniciais de todas as regiões"
+    tabindex="0"
+  >
+    <div class="carrossel-slides">
             <!-- Kanto -->
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bulbasaur - Kanto" width="120" height="120" loading="lazy" />
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="Charmander - Kanto" width="120" height="120" loading="lazy" />

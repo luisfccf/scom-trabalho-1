@@ -188,7 +188,7 @@ code {
 
 .carrossel-container {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: auto;
   position: relative;
   cursor: grab;
   user-select: none;
@@ -746,4 +746,80 @@ textarea {
 header,
 main {
   min-height: auto;
+}
+/* ==================================================
+   CONTROLES ACESSÍVEIS DO CARROSSEL
+   ================================================== */
+
+.carrossel-controles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.carrossel-controles button {
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  background-color: var(--bg-surface);
+  color: var(--primary);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.carrossel-controles button:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.carrossel-controles button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.carrossel-container:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 4px;
+}
+
+/* Botão de pausa ativado */
+#carrossel-pausar[aria-pressed="true"] {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+/* Celular */
+@media (max-width: 639px) {
+  .carrossel-controles {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .carrossel-controles button {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+/* Preferência por menos movimentos */
+@media (prefers-reduced-motion: reduce) {
+  html,
+  .carrossel-container {
+    scroll-behavior: auto;
+  }
+
+  .carrossel-slides img {
+    transition: none;
+  }
+
+  :target {
+    animation: none;
+  }
 }
