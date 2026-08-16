@@ -249,6 +249,7 @@ details[open] summary {
   border-collapse: collapse;
   margin: 1rem 0;
   text-align: center;
+  min-width: 560px;
 }
 
 .tabela-pokemon caption {
@@ -821,5 +822,57 @@ main {
 
   :target {
     animation: none;
+  }
+}
+/* Ajustes responsivos para celular */
+@media (max-width: 639px) {
+  main {
+    margin: 1rem auto;
+    padding: 0 0.75rem;
+    gap: 1.5rem;
+  }
+
+  .section-bloco,
+  .section-carrossel {
+    padding: 1rem;
+  }
+
+  header#topo {
+    position: static;
+    padding: 1rem 0.75rem;
+  }
+
+  nav ul {
+    gap: 0.5rem;
+  }
+
+  nav a {
+    display: inline-block;
+    min-height: 44px;
+    padding: 0.7rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .card-regiao-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .glossario-container dl {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    padding: 1.5rem 0.75rem;
+  }
+}
+/* Evita que o cabeçalho cubra o conteúdo em mobile e tablet */
+@media (max-width: 1023px) {
+  header#topo {
+    position: static;
   }
 }
