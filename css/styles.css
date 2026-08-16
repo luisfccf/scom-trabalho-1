@@ -14,6 +14,10 @@
   --radius: 8px;
   --transition: 0.2s ease-in-out;
 
+  /* Fontes locais do sistema: evitam requisições externas bloqueantes */
+  --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-destaque: "Arial Black", "Segoe UI", Arial, sans-serif;
+
   /* Badges dos Tipos Pokémon (Todos >= 4.5:1 com texto #ffffff) */
   --badge-grama: #15803d;     /* 4.8:1 */
   --badge-fogo: #c2410c;      /* 4.7:1 */
@@ -92,7 +96,7 @@ header#topo {
 }
 
 header h1 {
-  font-family: var(--font-pixel);
+  font-family: var(--font-destaque);
   font-size: 1.2rem;
   text-align: center;
   letter-spacing: 1px;
@@ -249,7 +253,6 @@ details[open] summary {
   border-collapse: collapse;
   margin: 1rem 0;
   text-align: center;
-  min-width: 560px;
 }
 
 .tabela-pokemon caption {
@@ -686,7 +689,7 @@ nav a.link-nav[aria-current="page"] {
    CRITÉRIO B2: REGRAS DE LEGIBILIDADE TIPOGRÁFICA (5/5 PTS)
    ========================================================================== */
 body {
-  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-base);
   font-size: 1rem;            /* Item 1: Corpo >= 16px */
   line-height: 1.6;           /* Item 2: Entre 1.4 e 1.8 */
   color: var(--text-main);
@@ -822,57 +825,5 @@ main {
 
   :target {
     animation: none;
-  }
-}
-/* Ajustes responsivos para celular */
-@media (max-width: 639px) {
-  main {
-    margin: 1rem auto;
-    padding: 0 0.75rem;
-    gap: 1.5rem;
-  }
-
-  .section-bloco,
-  .section-carrossel {
-    padding: 1rem;
-  }
-
-  header#topo {
-    position: static;
-    padding: 1rem 0.75rem;
-  }
-
-  nav ul {
-    gap: 0.5rem;
-  }
-
-  nav a {
-    display: inline-block;
-    min-height: 44px;
-    padding: 0.7rem;
-  }
-
-  h2 {
-    font-size: 1.25rem;
-  }
-
-  .card-regiao-header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .glossario-container dl {
-    grid-template-columns: 1fr;
-  }
-
-  footer {
-    padding: 1.5rem 0.75rem;
-  }
-}
-/* Evita que o cabeçalho cubra o conteúdo em mobile e tablet */
-@media (max-width: 1023px) {
-  header#topo {
-    position: static;
   }
 }
