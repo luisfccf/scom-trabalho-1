@@ -550,44 +550,228 @@
   <h2>Notas e Curiosidades</h2>
 </aside>
 
-      <!-- Formulário de Cadastro (id="cadastro") -->
-      <section id="cadastro" class="section-bloco">
-        <h2>Cadastre-se na Liga Pokémon</h2>
-        <form class="formulario-treinador" action="index.html" method="get">
-          <div class="campo-form">
-            <label for="nome">Nome Completo:</label>
-            <input type="text" id="nome" name="nome" required />
-          </div>
+      <form
+  class="formulario-treinador"
+  id="formulario-treinador"
+  action="index.html"
+  method="get"
+>
+  <!-- 1. Text -->
+  <div class="campo-form">
+    <label for="nome">Nome completo:</label>
+    <input
+      type="text"
+      id="nome"
+      name="nome"
+      autocomplete="name"
+      minlength="3"
+      maxlength="80"
+      required
+    />
+  </div>
 
-          <div class="campo-form">
-            <label for="email">E-mail Institucional:</label>
-            <input type="email" id="email" name="email" required />
-          </div>
+  <!-- 2. Password -->
+  <div class="campo-form">
+    <label for="senha">Senha:</label>
+    <input
+      type="password"
+      id="senha"
+      name="senha"
+      autocomplete="new-password"
+      minlength="8"
+      maxlength="30"
+      required
+      aria-describedby="ajuda-senha"
+    />
+    <small id="ajuda-senha">
+      Utilize pelo menos oito caracteres.
+    </small>
+  </div>
 
-          <div class="campo-form">
-            <label for="regiao">Região de Origem:</label>
-            <select id="regiao" name="regiao">
-              <option value="kanto">Kanto</option>
-              <option value="johto">Johto</option>
-              <option value="hoenn">Hoenn</option>
-              <option value="sinnoh">Sinnoh</option>
-              <option value="unova">Unova</option>
-              <option value="kalos">Kalos</option>
-              <option value="alola">Alola</option>
-              <option value="galar">Galar</option>
-              <option value="paldea">Paldea</option>
-            </select>
-          </div>
+  <!-- 3. Number -->
+  <div class="campo-form">
+    <label for="nivel">Nível do treinador:</label>
+    <input
+      type="number"
+      id="nivel"
+      name="nivel"
+      min="1"
+      max="100"
+      step="1"
+      value="1"
+      required
+    />
+  </div>
 
-          <div class="campo-form">
-            <label for="mensagem">Motivação da Jornada:</label>
-            <textarea id="mensagem" name="mensagem" rows="4"></textarea>
-          </div>
+  <!-- 4. Email -->
+  <div class="campo-form">
+    <label for="email">E-mail:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      autocomplete="email"
+      pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+      title="Digite um e-mail válido, como nome@dominio.com"
+      aria-describedby="status-email"
+    />
+    <small id="status-email" aria-live="polite">
+      O e-mail é opcional.
+    </small>
+  </div>
 
-          <button type="submit" class="btn-primario">Submeter Cadastro</button>
-        </form>
-      </section>
-    </main>
+  <!-- 5. URL -->
+  <div class="campo-form">
+    <label for="perfil">Página ou perfil do treinador:</label>
+    <input
+      type="url"
+      id="perfil"
+      name="perfil"
+      placeholder="https://exemplo.com"
+      pattern="https://.*"
+      title="Digite uma URL iniciada por https://"
+    />
+  </div>
+
+  <!-- 6. Textarea -->
+  <div class="campo-form">
+    <label for="mensagem">Motivação da jornada:</label>
+    <textarea
+      id="mensagem"
+      name="mensagem"
+      rows="5"
+      minlength="10"
+      maxlength="500"
+      required
+    ></textarea>
+  </div>
+
+  <!-- 7. Checkbox -->
+  <fieldset class="grupo-form">
+    <legend>Preferências de comunicação</legend>
+
+    <div class="opcao-form">
+      <input
+        type="checkbox"
+        id="novidades"
+        name="novidades"
+        value="sim"
+      />
+      <label for="novidades">
+        Deseja receber novidades por e-mail?
+      </label>
+    </div>
+  </fieldset>
+
+  <!-- 8. Radio -->
+  <fieldset class="grupo-form">
+    <legend>Experiência como treinador</legend>
+
+    <div class="opcao-form">
+      <input
+        type="radio"
+        id="experiencia-iniciante"
+        name="experiencia"
+        value="iniciante"
+        required
+      />
+      <label for="experiencia-iniciante">Iniciante</label>
+    </div>
+
+    <div class="opcao-form">
+      <input
+        type="radio"
+        id="experiencia-intermediario"
+        name="experiencia"
+        value="intermediario"
+      />
+      <label for="experiencia-intermediario">
+        Intermediário
+      </label>
+    </div>
+
+    <div class="opcao-form">
+      <input
+        type="radio"
+        id="experiencia-avancado"
+        name="experiencia"
+        value="avancado"
+      />
+      <label for="experiencia-avancado">Avançado</label>
+    </div>
+  </fieldset>
+
+  <!-- 9. Select -->
+  <div class="campo-form">
+    <label for="regiao">Região de origem:</label>
+    <select id="regiao" name="regiao" required>
+      <option value="">Selecione uma região</option>
+      <option value="kanto">Kanto</option>
+      <option value="johto">Johto</option>
+      <option value="hoenn">Hoenn</option>
+      <option value="sinnoh">Sinnoh</option>
+      <option value="unova">Unova</option>
+      <option value="kalos">Kalos</option>
+      <option value="alola">Alola</option>
+      <option value="galar">Galar</option>
+      <option value="paldea">Paldea</option>
+    </select>
+  </div>
+
+  <!-- 10. Date -->
+  <div class="campo-form">
+    <label for="data-jornada">Data de início da jornada:</label>
+    <input
+      type="date"
+      id="data-jornada"
+      name="data-jornada"
+      min="2026-01-01"
+      max="2027-12-31"
+      required
+    />
+  </div>
+
+  <!-- 11. Time -->
+  <div class="campo-form">
+    <label for="horario">Horário preferido:</label>
+    <input
+      type="time"
+      id="horario"
+      name="horario"
+      min="06:00"
+      max="22:00"
+      required
+    />
+  </div>
+
+  <!-- 12. Color -->
+  <div class="campo-form">
+    <label for="cor">Cor do uniforme:</label>
+    <input
+      type="color"
+      id="cor"
+      name="cor"
+      value="#c51d1d"
+    />
+  </div>
+
+  <div class="opcao-form">
+    <input
+      type="checkbox"
+      id="termos"
+      name="termos"
+      value="aceito"
+      required
+    />
+    <label for="termos">
+      Confirmo que as informações estão corretas.
+    </label>
+  </div>
+
+  <button type="submit" class="btn-primario">
+    Enviar cadastro
+  </button>
+</form>
 
     <!-- Rodapé Semântico -->
     <footer>

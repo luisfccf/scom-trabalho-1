@@ -827,3 +827,60 @@ main {
     animation: none;
   }
 }
+/* Grupos do formulário */
+.grupo-form {
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+}
+
+.grupo-form legend {
+  padding: 0 0.4rem;
+  font-weight: 600;
+}
+
+.opcao-form {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.5rem 0;
+}
+
+.opcao-form input[type="checkbox"],
+.opcao-form input[type="radio"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+}
+
+.opcao-form label {
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.campo-form input[type="color"] {
+  width: 5rem;
+  height: 3rem;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+
+.campo-form small {
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.campo-form input:user-invalid,
+.campo-form select:user-invalid,
+.campo-form textarea:user-invalid {
+  border-color: #b91c1c;
+}
+
+.campo-form input:user-valid,
+.campo-form select:user-valid,
+.campo-form textarea:user-valid {
+  border-color: #15803d;
+}
