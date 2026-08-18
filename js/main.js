@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   /*
-   * 2. Formulário: e-mail obrigatório quando o usuário
+   * 2. E-mail obrigatório quando o usuário
    * solicita o recebimento de novidades
    */
   const checkboxNovidades = document.querySelector('#novidades');
@@ -34,7 +34,170 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /*
-   * 3. Rolagem acessível dos links internos do menu
+   * 3. Validação da data de nascimento
+   */
+  const campoDataNascimento = document.querySelector(
+    '#data-nascimento'
+  );
+
+  const statusDataNascimento = document.querySelector(
+    '#status-data-nascimento'
+  );
+
+  if (campoDataNascimento && statusDataNascimento) {
+    const idadeMinima = 10;
+    const idadeMaxima = 120;
+
+    function formatarDataParaInput(data) {
+      const ano = data.getFullYear();
+      const mes = String(data.getMonth() + 1).padStart(2, '0');
+      const dia = String(data.getDate()).padStart(2, '0');
+
+      return `${ano}-${mes}-${dia}`;
+    }
+
+    function obterDataLimite(anos) {
+      const data = new Date();
+
+      data.setHours(0, 0, 0, 0);
+      data.setFullYear(data.getFullYear() - anos);
+
+      return data;
+    }
+
+    /*
+     * Data máxima: hoje menos 10 anos.
+     * Data mínima: hoje menos 120 anos.
+     */
+    const dataMaximaNascimento = obterDataLimite(
+      idadeMinima
+    );
+
+    const dataMinimaNascimento = obterDataLimite(
+      idadeMaxima
+    );
+
+    campoDataNascimento.min = formatarDataParaInput(
+      dataMinimaNascimento
+    );
+
+    campoDataNascimento.max = formatarDataParaInput(
+      dataMaximaNascimento
+    );
+
+    function calcularIdade(dataNascimento) {
+      const hoje = new Date();
+
+      let idade =
+        hoje.getFullYear() -
+        dataNascimento.getFullYear();
+
+      const diferencaMes =
+        hoje.getMonth() -
+        dataNascimento.getMonth();
+
+      const aindaNaoFezAniversario =
+        diferencaMes < 0 ||
+        (
+          diferencaMes === 0 &&
+          hoje.getDate() < dataNascimento.getDate()
+        );
+
+      if (aindaNaoFezAniversario) {
+        idade -= 1;
+      }
+
+      return idade;
+    }
+
+    function validarDataNascimento() {
+      /*
+       * Remove mensagens anteriores antes de validar.
+       */
+      campoDataNascimento.setCustomValidity('');
+
+      if (!campoDataNascimento.value) {
+        statusDataNascimento.textContent =
+          'Informe a data de nascimento.';
+
+        return;
+      }
+
+      const dataNascimento = new Date(
+        `${campoDataNascimento.value}T00:00:00`
+      );
+
+      if (Number.isNaN(dataNascimento.getTime())) {
+        campoDataNascimento.setCustomValidity(
+          'Informe uma data de nascimento válida.'
+        );
+
+        statusDataNascimento.textContent =
+          'Data inválida. Verifique o valor informado.';
+
+        return;
+      }
+
+      const hoje = new Date();
+      hoje.setHours(0, 0, 0, 0);
+
+      if (dataNascimento > hoje) {
+        campoDataNascimento.setCustomValidity(
+          'A data de nascimento não pode estar no futuro.'
+        );
+
+        statusDataNascimento.textContent =
+          'Data inválida: a data não pode estar no futuro.';
+
+        return;
+      }
+
+      const idade = calcularIdade(dataNascimento);
+
+      if (idade < idadeMinima) {
+        campoDataNascimento.setCustomValidity(
+          `O treinador deve ter pelo menos ${idadeMinima} anos.`
+        );
+
+        statusDataNascimento.textContent =
+          `Data inválida: idade mínima de ${idadeMinima} anos.`;
+
+        return;
+      }
+
+      if (idade > idadeMaxima) {
+        campoDataNascimento.setCustomValidity(
+          `A idade não pode ser superior a ${idadeMaxima} anos.`
+        );
+
+        statusDataNascimento.textContent =
+          `Data inválida: idade máxima de ${idadeMaxima} anos.`;
+
+        return;
+      }
+
+      statusDataNascimento.textContent =
+        `Data válida. Idade calculada: ${idade} anos.`;
+    }
+
+    campoDataNascimento.addEventListener(
+      'input',
+      validarDataNascimento
+    );
+
+    campoDataNascimento.addEventListener(
+      'change',
+      validarDataNascimento
+    );
+
+    campoDataNascimento.addEventListener(
+      'blur',
+      validarDataNascimento
+    );
+  }
+
+  /*
+   * 4. Rolagem acessível dos links internos do menu
    */
   const menuLinks = document.querySelectorAll(
     'header nav a[href^="#"]'
@@ -51,14 +214,23 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const cabecalho = document.querySelector('header#topo');
-      const alturaCabecalho = cabecalho?.offsetHeight || 70;
+      const cabecalho = document.querySelector(
+        'header#topo'
+      );
+
+      const alturaCabecalho =
+        cabecalho?.offsetHeight || 70;
 
       const posicaoDestino =
-        destino.getBoundingClientRect().top + window.scrollY;
+        destino.getBoundingClientRect().top +
+        window.scrollY;
 
       window.scrollTo({
-        top: posicaoDestino - alturaCabecalho - 10,
+        top:
+          posicaoDestino -
+          alturaCabecalho -
+          10,
+
         behavior: preferenciaMovimentoReduzido.matches
           ? 'auto'
           : 'smooth'
@@ -70,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /*
-   * 4. Elementos do carrossel
+   * 5. Elementos do carrossel
    */
   const carrossel = document.querySelector(
     '#carrossel-iniciais'
@@ -89,8 +261,8 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   /*
-   * Executa o código somente quando todos os elementos
-   * necessários do carrossel existem
+   * Executa o carrossel somente quando todos
+   * os elementos necessários existem.
    */
   if (
     carrossel &&
@@ -106,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let animacaoPausada = false;
 
     /*
-     * 5. Funções de rolagem do carrossel
+     * 6. Funções de rolagem
      */
     function obterDistanciaRolagem() {
       return Math.max(
@@ -136,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /*
-     * 6. Botões anterior e próximo
+     * 7. Botões anterior e próximo
      */
     botaoAnterior.addEventListener(
       'click',
@@ -149,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     /*
-     * 7. Botão para pausar ou continuar a animação
+     * 8. Botão de pausa
      */
     botaoPausar.addEventListener('click', () => {
       animacaoPausada = !animacaoPausada;
@@ -165,22 +337,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /*
-     * 8. Controle pelas setas do teclado
+     * 9. Controles pelas setas do teclado
      */
-    carrossel.addEventListener('keydown', (evento) => {
-      if (evento.key === 'ArrowLeft') {
-        evento.preventDefault();
-        rolarParaAnterior();
-      }
+    carrossel.addEventListener(
+      'keydown',
+      (evento) => {
+        if (evento.key === 'ArrowLeft') {
+          evento.preventDefault();
+          rolarParaAnterior();
+        }
 
-      if (evento.key === 'ArrowRight') {
-        evento.preventDefault();
-        rolarParaProximo();
+        if (evento.key === 'ArrowRight') {
+          evento.preventDefault();
+          rolarParaProximo();
+        }
       }
-    });
+    );
 
     /*
-     * 9. Pausa quando o carrossel recebe foco
+     * 10. Pausa quando o carrossel recebe foco
      */
     carrossel.addEventListener('focusin', () => {
       carrosselComFoco = true;
@@ -191,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /*
-     * 10. Pausa quando o mouse está sobre o carrossel
+     * 11. Pausa quando o mouse está sobre o carrossel
      */
     carrossel.addEventListener('mouseenter', () => {
       ponteiroSobreCarrossel = true;
@@ -205,18 +380,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /*
-     * 11. Arraste com o mouse
+     * 12. Arraste com o mouse
      */
-    carrossel.addEventListener('mousedown', (evento) => {
-      estaArrastando = true;
+    carrossel.addEventListener(
+      'mousedown',
+      (evento) => {
+        estaArrastando = true;
 
-      posicaoInicialX =
-        evento.pageX - carrossel.offsetLeft;
+        posicaoInicialX =
+          evento.pageX -
+          carrossel.offsetLeft;
 
-      rolagemInicial = carrossel.scrollLeft;
+        rolagemInicial =
+          carrossel.scrollLeft;
 
-      carrossel.classList.add('arrastando');
-    });
+        carrossel.classList.add('arrastando');
+      }
+    );
 
     carrossel.addEventListener('mouseup', () => {
       estaArrastando = false;
@@ -234,18 +414,23 @@ document.addEventListener('DOMContentLoaded', () => {
         evento.preventDefault();
 
         const posicaoAtualX =
-          evento.pageX - carrossel.offsetLeft;
+          evento.pageX -
+          carrossel.offsetLeft;
 
         const deslocamento =
-          (posicaoAtualX - posicaoInicialX) * 1.5;
+          (
+            posicaoAtualX -
+            posicaoInicialX
+          ) * 1.5;
 
         carrossel.scrollLeft =
-          rolagemInicial - deslocamento;
+          rolagemInicial -
+          deslocamento;
       }
     );
 
     /*
-     * 12. Rolagem automática
+     * 13. Rolagem automática
      */
     function executarRolagemAutomatica() {
       const limiteMaximo =

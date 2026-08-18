@@ -718,19 +718,27 @@
     </select>
   </div>
 
-  <!-- 10. Date -->
-  <div class="campo-form">
-    <label for="data-jornada">Data de início da jornada:</label>
-    <input
-      type="date"
-      id="data-jornada"
-      name="data-jornada"
-      min="2026-01-01"
-      max="2027-12-31"
-      required
-    />
-  </div>
+  <!-- 10. Data de começo -->
+<div class="campo-form">
+  <label for="data-início-jornada">Data de início da jornada:</label>
 
+  <input
+    type="date"
+    id="data-início-jornada"
+    name="data-início-jornada"
+    min="1906-08-18"
+    max="2016-08-18"
+    aria-describedby="status-data-início-jornada"
+    required
+  />
+
+  <small
+    id="status-data-início-jornada"
+    aria-live="polite"
+  >
+    O treinador deve ter entre 10 e 120 anos.
+  </small>
+</div>
   <!-- 11. Time -->
   <div class="campo-form">
     <label for="horario">Horário preferido:</label>
