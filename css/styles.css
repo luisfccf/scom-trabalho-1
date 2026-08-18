@@ -737,11 +737,9 @@ html {
 
 /* 3. Normalização de inputs e botões (evita estilo nativo cinza/arredondado do iOS) */
 button,
-input,
+input:not([type="checkbox"]):not([type="radio"]),
 select,
 textarea {
-  -webkit-appearance: none;
-  appearance: none;
   font-family: inherit;
 }
 
@@ -883,4 +881,39 @@ main {
 .campo-form select:user-valid,
 .campo-form textarea:user-valid {
   border-color: #15803d;
+}
+/* Corrige checkbox e radio removidos pelo appearance: none */
+.opcao-form input[type="checkbox"],
+.opcao-form input[type="radio"] {
+  -webkit-appearance: auto;
+  appearance: auto;
+
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+
+  flex: 0 0 1.25rem;
+  cursor: pointer;
+  accent-color: var(--primary);
+}
+
+.opcao-form {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.75rem 0;
+}
+
+.opcao-form label {
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Garante foco visível nos controles */
+.opcao-form input[type="checkbox"]:focus-visible,
+.opcao-form input[type="radio"]:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
 }
