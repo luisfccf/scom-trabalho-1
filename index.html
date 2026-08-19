@@ -741,16 +741,22 @@
 </div>
   <!-- 11. Time -->
   <div class="campo-form">
-    <label for="horario">Horário preferido:</label>
-    <input
-      type="time"
-      id="horario"
-      name="horario"
-      min="06:00"
-      max="22:00"
-      required
-    />
-  </div>
+  <label for="mensagem">Comentário sobre a jornada:</label>
+
+  <textarea
+    id="mensagem"
+    name="mensagem"
+    rows="5"
+    minlength="10"
+    maxlength="500"
+    aria-describedby="limite-mensagem"
+    required
+  ></textarea>
+
+  <small id="limite-mensagem">
+    Máximo de 500 caracteres.
+  </small>
+</div>
 
   <!-- 12. Color -->
   <div class="campo-form">

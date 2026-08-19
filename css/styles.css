@@ -918,9 +918,10 @@ main {
   outline-offset: 3px;
 }
 /* Área de comentário com largura fixa */
+/* Impede qualquer redimensionamento da caixa de comentário */
 .campo-form textarea {
   width: 100%;
-  min-width: 50%;
-  max-width: 50%;
-  resize: vertical;
+  min-width: 100%;
+  max-width: 100%;
+  resize: none;
 }
