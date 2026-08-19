@@ -917,3 +917,10 @@ main {
   outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
 }
+/* Área de comentário com largura fixa */
+.campo-form textarea {
+  width: 100%;
+  min-width: 50%;
+  max-width: 50%;
+  resize: vertical;
+}
