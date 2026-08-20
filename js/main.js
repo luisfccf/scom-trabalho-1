@@ -6,6 +6,31 @@ document.addEventListener('DOMContentLoaded', () => {
     '(prefers-reduced-motion: reduce)'
   );
 
+  function obterComportamentoRolagem() {
+    return preferenciaMovimentoReduzido.matches
+      ? 'auto'
+      : 'smooth';
+  }
+
+  /*
+   * Retornar ao topo da página
+   */
+  const linkVoltarTopo = document.querySelector(
+    '#voltar-topo'
+  );
+
+  if (linkVoltarTopo) {
+    linkVoltarTopo.addEventListener('click', (evento) => {
+      evento.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: obterComportamentoRolagem()
+      });
+    });
+  }
+
   /*
    * 2. E-mail obrigatório quando o usuário
    * solicita o recebimento de novidades
@@ -214,9 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const cabecalho = document.querySelector(
-        'header#topo'
-      );
+      const cabecalho = document.querySelector('header');
 
       const alturaCabecalho =
         cabecalho?.offsetHeight || 70;
@@ -231,9 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
           alturaCabecalho -
           10,
 
-        behavior: preferenciaMovimentoReduzido.matches
-          ? 'auto'
-          : 'smooth'
+        behavior: obterComportamentoRolagem()
       });
 
       destino.setAttribute('tabindex', '-1');
@@ -285,12 +306,6 @@ document.addEventListener('DOMContentLoaded', () => {
         200,
         carrossel.clientWidth * 0.8
       );
-    }
-
-    function obterComportamentoRolagem() {
-      return preferenciaMovimentoReduzido.matches
-        ? 'auto'
-        : 'smooth';
     }
 
     function rolarParaAnterior() {

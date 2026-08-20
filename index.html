@@ -14,12 +14,12 @@
     <!-- JS Externo com Defer -->
     <script src="js/main.js" defer></script>
   </head>
-  <body>
+  <body id="topo">
     <!-- Skip link para Acessibilidade WCAG -->
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
 
     <!-- Header e Barra de Navegação -->
-    <header id="topo">
+    <header>
       <div class="header-container">
         <h1>Mundo Pokémon</h1>
         <nav aria-label="Navegação do catálogo">
@@ -550,6 +550,9 @@
   <h2>Notas e Curiosidades</h2>
 </aside>
 
+      <section id="cadastro" class="section-bloco">
+        <h2>Cadastre-se na Liga Pokémon</h2>
+
       <form
   class="formulario-treinador"
   id="formulario-treinador"
@@ -622,7 +625,7 @@
 
   <!-- 5. URL -->
   <div class="campo-form">
-    <label for="perfil">Página ou perfil do treinador:</label>
+    <label for="perfil">Link de referência do Pokémon favorito:</label>
     <input
       type="url"
       id="perfil"
@@ -642,8 +645,10 @@
       rows="5"
       minlength="10"
       maxlength="500"
+      aria-describedby="limite-mensagem"
       required
     ></textarea>
+    <small id="limite-mensagem">Máximo de 500 caracteres.</small>
   </div>
 
   <!-- 7. Checkbox -->
@@ -718,22 +723,20 @@
     </select>
   </div>
 
-  <!-- 10. Data de começo -->
+  <!-- 10. Data de nascimento -->
 <div class="campo-form">
-  <label for="data-início-jornada">Data de início da jornada:</label>
+  <label for="data-nascimento">Data de nascimento:</label>
 
   <input
     type="date"
-    id="data-início-jornada"
-    name="data-início-jornada"
-    min="1906-08-18"
-    max="2016-08-18"
-    aria-describedby="status-data-início-jornada"
+    id="data-nascimento"
+    name="data-nascimento"
+    aria-describedby="status-data-nascimento"
     required
   />
 
   <small
-    id="status-data-início-jornada"
+    id="status-data-nascimento"
     aria-live="polite"
   >
     O treinador deve ter entre 10 e 120 anos.
@@ -741,22 +744,14 @@
 </div>
   <!-- 11. Time -->
   <div class="campo-form">
-  <label for="mensagem">Comentário sobre a jornada:</label>
-
-  <textarea
-    id="mensagem"
-    name="mensagem"
-    rows="5"
-    minlength="10"
-    maxlength="500"
-    aria-describedby="limite-mensagem"
-    required
-  ></textarea>
-
-  <small id="limite-mensagem">
-    Máximo de 500 caracteres.
-  </small>
-</div>
+    <label for="horario">Horário preferido:</label>
+    <input
+      type="time"
+      id="horario"
+      name="horario"
+      required
+    />
+  </div>
 
   <!-- 12. Color -->
   <div class="campo-form">
@@ -786,12 +781,14 @@
     Enviar cadastro
   </button>
 </form>
+      </section>
+    </main>
 
     <!-- Rodapé Semântico -->
     <footer>
       <p><strong>Desenvolvimento:</strong> Interface Web Pokémon</p>
       <p><strong>Conformidade:</strong> WCAG 2.2 Nível AA</p>
-      <p><a href="#topo">Retornar ao topo da página</a></p>
+      <a href="#topo" id="voltar-topo">Retornar ao topo da página</a>
     </footer>
   </body>
 </html>
