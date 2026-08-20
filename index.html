@@ -387,267 +387,1369 @@
       </section>
 
       <!-- Seção: Tabelas de Atributos (id="estatisticas") -->
-      <section id="estatisticas" class="section-bloco">
-        <h2>Atributos Técnicos por Região</h2>
-        <p>Selecione uma região para expandir os parâmetros de base dos iniciais:</p>
+        <section id="estatisticas" class="section-bloco tipos-section">
+  <h2>Tipos Pokémon: Vantagens e Desvantagens</h2>
 
-        <!-- Kanto -->
-        <details>
-          <summary>Região de Kanto</summary>
-          <table class="tabela-pokemon">
-            <caption>Galeria e Status de Combate - Kanto</caption>
-            <thead>
-              <tr>
-                <th scope="col">Bulbasaur</th>
-                <th scope="col">Charmander</th>
-                <th scope="col">Squirtle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bulbasaur" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="Charmander" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png" alt="Squirtle" width="120" height="120" loading="lazy" /></td>
-              </tr>
-              <tr>
-                <td><strong>Tipo:</strong> Planta / Veneno<br /><strong>HP:</strong> 45 | <strong>Ataque:</strong> 49</td>
-                <td><strong>Tipo:</strong> Fogo<br /><strong>HP:</strong> 39 | <strong>Ataque:</strong> 52</td>
-                <td><strong>Tipo:</strong> Água<br /><strong>HP:</strong> 44 | <strong>Ataque:</strong> 48</td>
-              </tr>
-            </tbody>
-          </table>
-        </details>
+  <p class="tipos-introducao">
+    Selecione um tipo para descobrir suas características,
+    vantagens e fraquezas durante uma batalha.
+  </p>
 
-        <!-- Johto -->
-        <details>
-          <summary>Região de Johto</summary>
-          <table class="tabela-pokemon">
-            <caption>Galeria e Status de Combate - Johto</caption>
-            <thead>
-              <tr>
-                <th scope="col">Chikorita</th>
-                <th scope="col">Cyndaquil</th>
-                <th scope="col">Totodile</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png" alt="Chikorita" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png" alt="Cyndaquil" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/158.png" alt="Totodile" width="120" height="120" loading="lazy" /></td>
-              </tr>
-              <tr>
-                <td><strong>Tipo:</strong> Planta<br /><strong>HP:</strong> 45 | <strong>Ataque:</strong> 49</td>
-                <td><strong>Tipo:</strong> Fogo<br /><strong>HP:</strong> 39 | <strong>Ataque:</strong> 52</td>
-                <td><strong>Tipo:</strong> Água<br /><strong>HP:</strong> 50 | <strong>Ataque:</strong> 65</td>
-              </tr>
-            </tbody>
-          </table>
-        </details>
+ <div class="lista-tipos">
+    <details class="card-tipo card-normal">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">●</span>
+        Tipo Normal
+      </summary>
 
-        <!-- Hoenn -->
-        <details>
-          <summary>Região de Hoenn</summary>
-          <table class="tabela-pokemon">
-            <caption>Galeria e Status de Combate - Hoenn</caption>
-            <thead>
-              <tr>
-                <th scope="col">Treecko</th>
-                <th scope="col">Torchic</th>
-                <th scope="col">Mudkip</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/252.png" alt="Treecko" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/255.png" alt="Torchic" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/258.png" alt="Mudkip" width="120" height="120" loading="lazy" /></td>
-              </tr>
-              <tr>
-                <td><strong>Tipo:</strong> Planta<br /><strong>HP:</strong> 40 | <strong>Ataque:</strong> 45</td>
-                <td><strong>Tipo:</strong> Fogo<br /><strong>HP:</strong> 45 | <strong>Ataque:</strong> 60</td>
-                <td><strong>Tipo:</strong> Água<br /><strong>HP:</strong> 50 | <strong>Ataque:</strong> 70</td>
-              </tr>
-            </tbody>
-          </table>
-        </details>
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Pokémon versáteis, conhecidos por movimentos variados e equilíbrio.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png"
+                alt="Eevee do tipo Normal"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Eevee — Normal</figcaption>
+            </figure>
+        </article>
 
-        <!-- Sinnoh -->
-        <details>
-          <summary>Região de Sinnoh</summary>
-          <table class="tabela-pokemon">
-            <caption>Galeria e Status de Combate - Sinnoh</caption>
-            <thead>
-              <tr>
-                <th scope="col">Turtwig</th>
-                <th scope="col">Chimchar</th>
-                <th scope="col">Piplup</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/387.png" alt="Turtwig" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/390.png" alt="Chimchar" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png" alt="Piplup" width="120" height="120" loading="lazy" /></td>
-              </tr>
-              <tr>
-                <td><strong>Tipo:</strong> Planta<br /><strong>HP:</strong> 55 | <strong>Ataque:</strong> 68</td>
-                <td><strong>Tipo:</strong> Fogo<br /><strong>HP:</strong> 44 | <strong>Ataque:</strong> 58</td>
-                <td><strong>Tipo:</strong> Água<br /><strong>HP:</strong> 53 | <strong>Ataque:</strong> 51</td>
-              </tr>
-            </tbody>
-          </table>
-        </details>
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Não possui vantagem ofensiva contra nenhum tipo.</p>
+          <p class="sem-vantagem">Nenhum exemplo: golpes do tipo Normal não causam dano super eficaz.</p>
+        </article>
 
-        <!-- Unova -->
-        <details>
-          <summary>Região de Unova</summary>
-          <table class="tabela-pokemon">
-            <caption>Galeria e Status de Combate - Unova</caption>
-            <thead>
-              <tr>
-                <th scope="col">Snivy</th>
-                <th scope="col">Tepig</th>
-                <th scope="col">Oshawott</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/495.png" alt="Snivy" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/498.png" alt="Tepig" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/501.png" alt="Oshawott" width="120" height="120" loading="lazy" /></td>
-              </tr>
-              <tr>
-                <td><strong>Tipo:</strong> Planta<br /><strong>HP:</strong> 45 | <strong>Ataque:</strong> 45</td>
-                <td><strong>Tipo:</strong> Fogo<br /><strong>HP:</strong> 65 | <strong>Ataque:</strong> 63</td>
-                <td><strong>Tipo:</strong> Água<br /><strong>HP:</strong> 55 | <strong>Ataque:</strong> 55</td>
-              </tr>
-            </tbody>
-          </table>
-        </details>
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Lutador.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png"
+                alt="Machamp do tipo Lutador"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Machamp — Lutador</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
 
-        <!-- Kalos -->
-        <details>
-          <summary>Região de Kalos</summary>
-          <table class="tabela-pokemon">
-            <caption>Galeria e Status de Combate - Kalos</caption>
-            <thead>
-              <tr>
-                <th scope="col">Chespin</th>
-                <th scope="col">Fennekin</th>
-                <th scope="col">Froakie</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/650.png" alt="Chespin" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/653.png" alt="Fennekin" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/656.png" alt="Froakie" width="120" height="120" loading="lazy" /></td>
-              </tr>
-              <tr>
-                <td><strong>Tipo:</strong> Planta<br /><strong>HP:</strong> 56 | <strong>Ataque:</strong> 61</td>
-                <td><strong>Tipo:</strong> Fogo<br /><strong>HP:</strong> 40 | <strong>Ataque:</strong> 45</td>
-                <td><strong>Tipo:</strong> Água<br /><strong>HP:</strong> 41 | <strong>Ataque:</strong> 56</td>
-              </tr>
-            </tbody>
-          </table>
-        </details>
+    <details class="card-tipo card-fogo">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">🔥</span>
+        Tipo Fogo
+      </summary>
 
-        <!-- Alola -->
-        <details>
-          <summary>Região de Alola</summary>
-          <table class="tabela-pokemon">
-            <caption>Galeria e Status de Combate - Alola</caption>
-            <thead>
-              <tr>
-                <th scope="col">Rowlet</th>
-                <th scope="col">Litten</th>
-                <th scope="col">Popplio</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/722.png" alt="Rowlet" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/725.png" alt="Litten" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/728.png" alt="Popplio" width="120" height="120" loading="lazy" /></td>
-              </tr>
-              <tr>
-                <td><strong>Tipo:</strong> Planta / Voador<br /><strong>HP:</strong> 68 | <strong>Ataque:</strong> 55</td>
-                <td><strong>Tipo:</strong> Fogo<br /><strong>HP:</strong> 45 | <strong>Ataque:</strong> 65</td>
-                <td><strong>Tipo:</strong> Água<br /><strong>HP:</strong> 50 | <strong>Ataque:</strong> 54</td>
-              </tr>
-            </tbody>
-          </table>
-        </details>
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Utilizam calor e chamas em seus ataques.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+                alt="Charmander do tipo Fogo"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Charmander — Fogo</figcaption>
+            </figure>
+        </article>
 
-        <!-- Galar -->
-        <details>
-          <summary>Região de Galar</summary>
-          <table class="tabela-pokemon">
-            <caption>Galeria e Status de Combate - Galar</caption>
-            <thead>
-              <tr>
-                <th scope="col">Grookey</th>
-                <th scope="col">Scorbunny</th>
-                <th scope="col">Sobble</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/810.png" alt="Grookey" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/813.png" alt="Scorbunny" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/816.png" alt="Sobble" width="120" height="120" loading="lazy" /></td>
-              </tr>
-              <tr>
-                <td><strong>Tipo:</strong> Planta<br /><strong>HP:</strong> 50 | <strong>Ataque:</strong> 65</td>
-                <td><strong>Tipo:</strong> Fogo<br /><strong>HP:</strong> 50 | <strong>Ataque:</strong> 71</td>
-                <td><strong>Tipo:</strong> Água<br /><strong>HP:</strong> 50 | <strong>Ataque:</strong> 40</td>
-              </tr>
-            </tbody>
-          </table>
-        </details>
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Planta, Gelo, Inseto e Aço.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+                alt="Bulbasaur do tipo Planta"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Bulbasaur — Planta</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/471.png"
+                alt="Glaceon do tipo Gelo"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Glaceon — Gelo</figcaption>
+            </figure>
+          </div>
+        </article>
 
-        <!-- Paldea -->
-        <details>
-          <summary>Região de Paldea</summary>
-          <table class="tabela-pokemon">
-            <caption>Galeria e Status de Combate - Paldea</caption>
-            <thead>
-              <tr>
-                <th scope="col">Sprigatito</th>
-                <th scope="col">Fuecoco</th>
-                <th scope="col">Quaxly</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/906.png" alt="Sprigatito" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/909.png" alt="Fuecoco" width="120" height="120" loading="lazy" /></td>
-                <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/912.png" alt="Quaxly" width="120" height="120" loading="lazy" /></td>
-              </tr>
-              <tr>
-                <td><strong>Tipo:</strong> Planta<br /><strong>HP:</strong> 40 | <strong>Ataque:</strong> 61</td>
-                <td><strong>Tipo:</strong> Fogo<br /><strong>HP:</strong> 67 | <strong>Ataque:</strong> 45</td>
-                <td><strong>Tipo:</strong> Água<br /><strong>HP:</strong> 55 | <strong>Ataque:</strong> 65</td>
-              </tr>
-            </tbody>
-          </table>
-        </details>
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Água, Terra e Pedra.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
+                alt="Squirtle do tipo Água"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Squirtle — Água</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png"
+                alt="Dugtrio do tipo Terra"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Dugtrio — Terra</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
 
-        <div class="video-container">
-  <h3>Mídia Institucional</h3>
-  <iframe
-    width="320"
-    height="180"
-    src="https://www.youtube-nocookie.com/embed/jM7tqHHJoeY"
-    title="Trailer Promocional Pokémon"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen>
-  </iframe>
-</div>
-      </section>
+    <details class="card-tipo card-agua">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">💧</span>
+        Tipo Água
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Dominam ataques aquáticos e adaptam-se bem a ambientes marítimos.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
+                alt="Squirtle do tipo Água"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Squirtle — Água</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Fogo, Terra e Pedra.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+                alt="Charmander do tipo Fogo"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Charmander — Fogo</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74.png"
+                alt="Geodude do tipo Pedra"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Geodude — Pedra</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Elétrico e Planta.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                alt="Pikachu do tipo Elétrico"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Pikachu — Elétrico</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+                alt="Bulbasaur do tipo Planta"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Bulbasaur — Planta</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-eletrico">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">⚡</span>
+        Tipo Elétrico
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Armazenam e liberam grandes descargas de energia.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                alt="Pikachu do tipo Elétrico"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Pikachu — Elétrico</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Água e Voador.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
+                alt="Squirtle do tipo Água"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Squirtle — Água</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png"
+                alt="Pidgeot do tipo Voador"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Pidgeot — Voador</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Terra.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png"
+                alt="Dugtrio do tipo Terra"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Dugtrio — Terra</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-planta">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">🌿</span>
+        Tipo Planta
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Utilizam folhas, raízes e energia natural.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+                alt="Bulbasaur do tipo Planta"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Bulbasaur — Planta</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Água, Terra e Pedra.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
+                alt="Squirtle do tipo Água"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Squirtle — Água</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png"
+                alt="Dugtrio do tipo Terra"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Dugtrio — Terra</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Fogo, Gelo, Veneno, Voador e Inseto.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+                alt="Charmander do tipo Fogo"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Charmander — Fogo</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png"
+                alt="Pidgeot do tipo Voador"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Pidgeot — Voador</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-gelo">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">❄️</span>
+        Tipo Gelo
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Controlam baixas temperaturas e ataques congelantes.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/471.png"
+                alt="Glaceon do tipo Gelo"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Glaceon — Gelo</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Planta, Terra, Voador e Dragão.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+                alt="Bulbasaur do tipo Planta"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Bulbasaur — Planta</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png"
+                alt="Dragonite do tipo Dragão"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Dragonite — Dragão</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Fogo, Lutador, Pedra e Aço.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+                alt="Charmander do tipo Fogo"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Charmander — Fogo</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/208.png"
+                alt="Steelix do tipo Aço"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Steelix — Aço</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-lutador">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">🥊</span>
+        Tipo Lutador
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Especialistas em força física e técnicas de combate.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png"
+                alt="Machamp do tipo Lutador"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Machamp — Lutador</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Normal, Gelo, Pedra, Sombrio e Aço.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png"
+                alt="Eevee do tipo Normal"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Eevee — Normal</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png"
+                alt="Umbreon do tipo Sombrio"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Umbreon — Sombrio</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Voador, Psíquico e Fada.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png"
+                alt="Pidgeot do tipo Voador"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Pidgeot — Voador</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png"
+                alt="Alakazam do tipo Psíquico"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Alakazam — Psíquico</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-veneno">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">☠️</span>
+        Tipo Veneno
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Utilizam toxinas e efeitos que enfraquecem seus adversários.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png"
+                alt="Muk do tipo Veneno"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Muk — Veneno</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Planta e Fada.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+                alt="Bulbasaur do tipo Planta"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Bulbasaur — Planta</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png"
+                alt="Gardevoir do tipo Fada"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Gardevoir — Fada</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Terra e Psíquico.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png"
+                alt="Dugtrio do tipo Terra"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Dugtrio — Terra</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png"
+                alt="Alakazam do tipo Psíquico"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Alakazam — Psíquico</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-terra">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">⛰️</span>
+        Tipo Terra
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Controlam o solo, a areia e movimentos sísmicos.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png"
+                alt="Dugtrio do tipo Terra"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Dugtrio — Terra</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Fogo, Elétrico, Veneno, Pedra e Aço.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                alt="Pikachu do tipo Elétrico"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Pikachu — Elétrico</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png"
+                alt="Muk do tipo Veneno"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Muk — Veneno</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Água, Planta e Gelo.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
+                alt="Squirtle do tipo Água"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Squirtle — Água</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/471.png"
+                alt="Glaceon do tipo Gelo"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Glaceon — Gelo</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-voador">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">🪽</span>
+        Tipo Voador
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Usam velocidade aérea, asas e ataques realizados do céu.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png"
+                alt="Pidgeot do tipo Voador"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Pidgeot — Voador</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Planta, Lutador e Inseto.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+                alt="Bulbasaur do tipo Planta"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Bulbasaur — Planta</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png"
+                alt="Machamp do tipo Lutador"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Machamp — Lutador</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Elétrico, Gelo e Pedra.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                alt="Pikachu do tipo Elétrico"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Pikachu — Elétrico</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74.png"
+                alt="Geodude do tipo Pedra"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Geodude — Pedra</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-psiquico">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">🔮</span>
+        Tipo Psíquico
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Utilizam poder mental, telecinese e percepção avançada.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png"
+                alt="Alakazam do tipo Psíquico"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Alakazam — Psíquico</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Lutador e Veneno.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png"
+                alt="Machamp do tipo Lutador"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Machamp — Lutador</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png"
+                alt="Muk do tipo Veneno"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Muk — Veneno</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Inseto, Fantasma e Sombrio.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png"
+                alt="Butterfree do tipo Inseto"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Butterfree — Inseto</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png"
+                alt="Umbreon do tipo Sombrio"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Umbreon — Sombrio</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-inseto">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">🐞</span>
+        Tipo Inseto
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Inspirados em insetos, metamorfose e movimentos rápidos.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png"
+                alt="Butterfree do tipo Inseto"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Butterfree — Inseto</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Planta, Psíquico e Sombrio.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+                alt="Bulbasaur do tipo Planta"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Bulbasaur — Planta</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png"
+                alt="Alakazam do tipo Psíquico"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Alakazam — Psíquico</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Fogo, Voador e Pedra.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+                alt="Charmander do tipo Fogo"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Charmander — Fogo</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png"
+                alt="Pidgeot do tipo Voador"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Pidgeot — Voador</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-pedra">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">🪨</span>
+        Tipo Pedra
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Possuem corpos resistentes e golpes baseados em rochas.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74.png"
+                alt="Geodude do tipo Pedra"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Geodude — Pedra</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Fogo, Gelo, Voador e Inseto.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+                alt="Charmander do tipo Fogo"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Charmander — Fogo</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png"
+                alt="Pidgeot do tipo Voador"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Pidgeot — Voador</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Água, Planta, Lutador, Terra e Aço.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
+                alt="Squirtle do tipo Água"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Squirtle — Água</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png"
+                alt="Machamp do tipo Lutador"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Machamp — Lutador</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-fantasma">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">👻</span>
+        Tipo Fantasma
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Ligados ao sobrenatural, ilusões e movimentos intangíveis.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png"
+                alt="Gengar do tipo Fantasma"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Gengar — Fantasma</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Psíquico e Fantasma.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png"
+                alt="Alakazam do tipo Psíquico"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Alakazam — Psíquico</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png"
+                alt="Gengar do tipo Fantasma"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Gengar — Fantasma</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Fantasma e Sombrio.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png"
+                alt="Gengar do tipo Fantasma"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Gengar — Fantasma</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png"
+                alt="Umbreon do tipo Sombrio"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Umbreon — Sombrio</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-dragao">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">🐉</span>
+        Tipo Dragão
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Pokémon raros, poderosos e associados a criaturas lendárias.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png"
+                alt="Dragonite do tipo Dragão"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Dragonite — Dragão</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Dragão.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png"
+                alt="Dragonite do tipo Dragão"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Dragonite — Dragão</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Gelo, Dragão e Fada.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/471.png"
+                alt="Glaceon do tipo Gelo"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Glaceon — Gelo</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png"
+                alt="Gardevoir do tipo Fada"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Gardevoir — Fada</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-sombrio">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">🌑</span>
+        Tipo Sombrio
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Utilizam estratégias imprevisíveis e ataques ligados à escuridão.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png"
+                alt="Umbreon do tipo Sombrio"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Umbreon — Sombrio</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Psíquico e Fantasma.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png"
+                alt="Alakazam do tipo Psíquico"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Alakazam — Psíquico</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png"
+                alt="Gengar do tipo Fantasma"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Gengar — Fantasma</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Lutador, Inseto e Fada.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png"
+                alt="Machamp do tipo Lutador"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Machamp — Lutador</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png"
+                alt="Gardevoir do tipo Fada"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Gardevoir — Fada</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-aco">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">⚙️</span>
+        Tipo Aço
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Apresentam grande resistência e corpos semelhantes a metais.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/208.png"
+                alt="Steelix do tipo Aço"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Steelix — Aço</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Gelo, Pedra e Fada.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/471.png"
+                alt="Glaceon do tipo Gelo"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Glaceon — Gelo</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png"
+                alt="Gardevoir do tipo Fada"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Gardevoir — Fada</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Fogo, Lutador e Terra.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+                alt="Charmander do tipo Fogo"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Charmander — Fogo</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png"
+                alt="Dugtrio do tipo Terra"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Dugtrio — Terra</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+
+    <details class="card-tipo card-fada">
+      <summary>
+        <span class="icone-tipo" aria-hidden="true">✨</span>
+        Tipo Fada
+      </summary>
+
+      <div class="conteudo-tipo">
+        <article class="pokemon-representante">
+          <h3>Representante</h3>
+          <p>Relacionados à magia, encanto e energia mística.</p>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png"
+                alt="Gardevoir do tipo Fada"
+                width="120"
+                height="120"
+                loading="lazy"
+              />
+              <figcaption>Gardevoir — Fada</figcaption>
+            </figure>
+        </article>
+
+        <article class="relacao-tipo relacao-vantagem">
+          <h3>Forte contra</h3>
+          <p><strong>Golpes super eficazes contra:</strong> Lutador, Dragão e Sombrio.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png"
+                alt="Machamp do tipo Lutador"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Machamp — Lutador</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png"
+                alt="Dragonite do tipo Dragão"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Dragonite — Dragão</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="relacao-tipo relacao-fraqueza">
+          <h3>Fraco contra</h3>
+          <p><strong>Recebe dano super eficaz de:</strong> Veneno e Aço.</p>
+          <div class="pokemon-exemplos">
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png"
+                alt="Muk do tipo Veneno"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Muk — Veneno</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/208.png"
+                alt="Steelix do tipo Aço"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+              <figcaption>Steelix — Aço</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </details>
+  </div>
+
 
       <!-- Aside (id="curiosidades") -->
       <aside id="curiosidades" class="section-bloco curiosidades-box">

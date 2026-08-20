@@ -1160,3 +1160,234 @@ header nav a.link-nav[aria-current="page"] {
     padding: 1.25rem 1.25rem 1.25rem 3.25rem;
   }
 }
+/* ==================================================
+   CARTÃO INTERATIVO DO TIPO ELÉTRICO
+   ================================================== */
+
+.lista-tipos {
+  display: grid;
+  gap: 1rem;
+}
+
+.card-tipo {
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  box-shadow: 0 5px 15px rgba(15, 23, 42, 0.08);
+}
+
+/* Parte que recebe o clique */
+.card-tipo > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 1.25rem;
+  color: #422006;
+  background: linear-gradient(135deg, #facc15, #fde047);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.card-tipo > summary:hover {
+  background: linear-gradient(135deg, #eab308, #facc15);
+}
+
+.card-tipo > summary:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: -3px;
+}
+
+.icone-tipo {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+/* Conteúdo que aparece depois do clique */
+.card-tipo .conteudo-tipo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: #f8fafc;
+}
+
+.card-tipo .conteudo-tipo article {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1rem;
+  border-radius: 0.75rem;
+}
+
+.card-tipo .conteudo-tipo h3 {
+  margin: 0 0 0.75rem;
+  text-align: center;
+}
+
+/* Representante */
+.card-tipo .pokemon-representante {
+  background-color: #fef9c3;
+  border: 2px solid #facc15;
+}
+
+/* Vantagens */
+.card-tipo .relacao-vantagem {
+  background-color: #dcfce7;
+  border: 2px solid #22c55e;
+}
+
+/* Desvantagens */
+.card-tipo .relacao-fraqueza {
+  background-color: #fee2e2;
+  border: 2px solid #ef4444;
+}
+
+.card-tipo figure {
+  margin: 0;
+  text-align: center;
+}
+
+.card-tipo img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+.card-tipo figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.card-tipo .pokemon-exemplos {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Celular */
+@media (max-width: 767px) {
+  .card-tipo .conteudo-tipo {
+    grid-template-columns: 1fr;
+  }
+}
+/* ==================================================
+   CORES DOS TIPOS POKÉMON
+   ================================================== */
+
+.card-normal {
+  --cor-tipo: #64748b;
+  --texto-tipo: #ffffff;
+}
+
+.card-fogo {
+  --cor-tipo: #c2410c;
+  --texto-tipo: #ffffff;
+}
+
+.card-agua {
+  --cor-tipo: #0369a1;
+  --texto-tipo: #ffffff;
+}
+
+.card-eletrico {
+  --cor-tipo: #facc15;
+  --texto-tipo: #422006;
+}
+
+.card-planta {
+  --cor-tipo: #15803d;
+  --texto-tipo: #ffffff;
+}
+
+.card-gelo {
+  --cor-tipo: #0e7490;
+  --texto-tipo: #ffffff;
+}
+
+.card-lutador {
+  --cor-tipo: #9f1239;
+  --texto-tipo: #ffffff;
+}
+
+.card-veneno {
+  --cor-tipo: #7e22ce;
+  --texto-tipo: #ffffff;
+}
+
+.card-terra {
+  --cor-tipo: #a16207;
+  --texto-tipo: #ffffff;
+}
+
+.card-voador {
+  --cor-tipo: #2563eb;
+  --texto-tipo: #ffffff;
+}
+
+.card-psiquico {
+  --cor-tipo: #be185d;
+  --texto-tipo: #ffffff;
+}
+
+.card-inseto {
+  --cor-tipo: #4d7c0f;
+  --texto-tipo: #ffffff;
+}
+
+.card-pedra {
+  --cor-tipo: #57534e;
+  --texto-tipo: #ffffff;
+}
+
+.card-fantasma {
+  --cor-tipo: #4c1d95;
+  --texto-tipo: #ffffff;
+}
+
+.card-dragao {
+  --cor-tipo: #3730a3;
+  --texto-tipo: #ffffff;
+}
+
+.card-sombrio {
+  --cor-tipo: #292524;
+  --texto-tipo: #ffffff;
+}
+
+.card-aco {
+  --cor-tipo: #475569;
+  --texto-tipo: #ffffff;
+}
+
+.card-fada {
+  --cor-tipo: #be185d;
+  --texto-tipo: #ffffff;
+}
+
+/* Aplica a cor correspondente em cada barra */
+.card-tipo > summary,
+.card-tipo > summary:hover {
+  color: var(--texto-tipo);
+  background: var(--cor-tipo);
+}
+
+.card-tipo > summary:hover {
+  filter: brightness(0.88);
+}
+
+.card-tipo[open] > summary {
+  box-shadow: inset 0 -3px 0 rgba(255, 255, 255, 0.4);
+}
