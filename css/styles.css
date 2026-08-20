@@ -994,3 +994,169 @@ header nav a.link-nav[aria-current="page"] {
     text-align: center;
   }
 }
+.historia-pokemon {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(300px, 2fr);
+  align-items: start;
+  gap: 2rem;
+}
+
+.historia-conteudo {
+  min-width: 0;
+}
+
+.historia-figura {
+  margin: 0;
+}
+
+.grupo-pokemon {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+}
+
+.grupo-pokemon img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.historia-figura figcaption {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 767px) {
+  .historia-pokemon {
+    grid-template-columns: 1fr;
+  }
+
+  .historia-figura {
+    max-width: 500px;
+    margin-inline: auto;
+  }
+}
+/* ==================================================
+   HISTÓRIA POKÉMON
+   ================================================== */
+
+.historia-pokemon .historia-conteudo {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(250, 204, 21, 0.25),
+      transparent 13rem
+    ),
+    linear-gradient(145deg, #ffffff, #fff7ed);
+  border: 1px solid #fdba74;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(153, 27, 27, 0.12);
+}
+
+/* Círculo decorativo */
+.historia-pokemon .historia-conteudo::after {
+  content: "";
+  position: absolute;
+  right: -4rem;
+  bottom: -4rem;
+  width: 10rem;
+  height: 10rem;
+  border: 1.5rem solid rgba(197, 29, 29, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.historia-pokemon .marcos-historia {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.historia-pokemon .marcos-historia li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 5rem;
+  padding: 0.8rem;
+  color: #450a0a;
+  text-align: center;
+  background-color: #fee2e2;
+  border-top: 4px solid #c51d1d;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(15, 23, 42, 0.08);
+}
+
+.historia-pokemon .marcos-historia strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #991b1b;
+  font-size: 1.05rem;
+}
+
+.historia-pokemon .historia-conteudo p {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 1.25rem;
+}
+
+.historia-pokemon .historia-conteudo p:first-of-type::first-letter {
+  float: left;
+  margin: 0.15rem 0.5rem 0 0;
+  color: #c51d1d;
+  font-family: Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 0.75;
+}
+
+.historia-pokemon .historia-conteudo blockquote {
+  position: relative;
+  z-index: 1;
+  margin: 1.75rem 0 0;
+  padding: 1.5rem 1.5rem 1.5rem 4rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #991b1b, #c51d1d);
+  border: 0;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 14px rgba(153, 27, 27, 0.2);
+}
+
+.historia-pokemon .historia-conteudo blockquote::before {
+  content: "“";
+  position: absolute;
+  top: 0.25rem;
+  left: 1.1rem;
+  color: #facc15;
+  font-family: Georgia, serif;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .historia-pokemon .historia-conteudo {
+    padding: 1.25rem;
+  }
+
+  .historia-pokemon .marcos-historia {
+    grid-template-columns: 1fr;
+  }
+
+  .historia-pokemon .historia-conteudo blockquote {
+    padding: 1.25rem 1.25rem 1.25rem 3.25rem;
+  }
+}
