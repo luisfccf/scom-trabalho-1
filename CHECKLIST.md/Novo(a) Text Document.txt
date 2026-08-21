@@ -1,0 +1,100 @@
+# Checklist de Boas Práticas — Mundo Pokémon
+
+## Estrutura e qualidade do código
+
+- [x] DOCTYPE HTML5 correto.
+- [x] Atributo `lang="pt-BR"` definido no HTML.
+- [x] Meta viewport configurada.
+- [x] HTML validado pelo W3C sem erros.
+- [x] CSS validado pelo W3C sem erros.
+- [x] CSS externo separado do HTML.
+- [x] JavaScript externo separado do HTML.
+- [x] Estrutura de diretórios organizada.
+- [x] Hierarquia lógica de títulos.
+- [x] Existência de apenas um `h1` por página.
+- [x] Ausência de elementos HTML obsoletos.
+- [x] Ausência de IDs duplicados.
+- [x] Nomenclatura consistente de classes.
+- [x] Uso de variáveis CSS definidas em `:root`.
+- [x] Uso predominante de unidades relativas.
+
+## Estrutura semântica
+
+- [x] Uso de `header`.
+- [x] Uso de `nav`.
+- [x] Uso de `main`.
+- [x] Uso de `section`.
+- [x] Uso de `article`.
+- [x] Uso de `aside`.
+- [x] Uso de `footer`.
+- [x] Uso de `figure` e `figcaption`.
+- [x] Uso de `details` e `summary` nos conteúdos expansíveis.
+
+## Acessibilidade
+
+- [x] Navegação funcional por teclado.
+- [x] Foco visível nos elementos interativos.
+- [x] Imagens com textos alternativos.
+- [x] Contraste adequado entre texto e fundo.
+- [x] Campos de formulário associados aos respectivos `labels`.
+- [x] Uso apropriado de ARIA quando necessário.
+- [x] Link para pular diretamente ao conteúdo principal.
+- [x] Carrossel com controles acessíveis.
+- [x] Respeito à preferência de movimento reduzido.
+- [x] Resultado de acessibilidade no Lighthouse: 100.
+
+## Responsividade
+
+- [x] Uso de CSS Grid.
+- [x] Uso de Flexbox.
+- [x] Layout adaptado para dispositivos móveis.
+- [x] Layout adaptado para tablets.
+- [x] Layout adaptado para desktops.
+- [x] Capturas de tela dos diferentes formatos.
+- [x] Wireframe desktop.
+- [x] Wireframe mobile.
+
+## Desempenho
+
+- [x] Imagens com dimensões explícitas.
+- [x] Uso de `loading="lazy"` nas imagens.
+- [x] JavaScript carregado com `defer`.
+- [x] Performance no Lighthouse: 99.
+- [x] Best Practices no Lighthouse: 100.
+- [x] SEO no Lighthouse: 100.
+
+## Formulário
+
+- [x] Campo de texto.
+- [x] Campo de senha.
+- [x] Campo numérico.
+- [x] Campo de e-mail.
+- [x] Campo de URL.
+- [x] Área de texto.
+- [x] Checkbox.
+- [x] Botões de seleção exclusiva.
+- [x] Campo de seleção.
+- [x] Campo de data.
+- [x] Campo de horário.
+- [x] Campo de cor.
+- [x] E-mail obrigatório quando novidades estão ativadas.
+- [x] Validação de idade entre 10 e 120 anos.
+- [x] Limite de 500 caracteres na área de texto.
+
+## Compatibilidade
+
+- [x] Testado no Google Chrome.
+- [x] Testado no Mozilla Firefox.
+- [x] Testado no Microsoft Edge.
+
+## Documentação e controle de versão
+
+- [x] Repositório Git individual.
+- [x] Commits realizados em dias diferentes.
+- [x] Mensagens de commit descritivas.
+- [x] README com instruções de execução.
+- [x] Evidências de validação W3C.
+- [x] Evidências de responsividade.
+- [x] Evidências de compatibilidade.
+- [x] Wireframes registrados.
+- [x] Uso de inteligência artificial declarado no README.
