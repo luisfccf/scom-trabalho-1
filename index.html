@@ -42,7 +42,11 @@
   <h2>Pokémon Iniciais de Todas as Regiões</h2>
 
   <!-- Controles acessíveis do carrossel -->
-  <div class="carrossel-controles" aria-label="Controles do carrossel">
+  <div
+  class="carrossel-controles"
+  role="group"
+  aria-label="Controles do carrossel"
+>
     <button
       type="button"
       id="carrossel-anterior"
@@ -131,6 +135,9 @@
   <h2>Uma Breve História do Universo Pokémon</h2>
 
   <article class="historia-pokemon">
+    <h3 class="visualmente-oculto">
+  História e evolução do universo Pokémon
+</h3>
     <div class="historia-conteudo">
       <ul class="marcos-historia" aria-label="Marcos da história de Pokémon">
   <li><strong>1996</strong> lançamento no Japão</li>
@@ -1750,6 +1757,20 @@
     </details>
   </div>
 
+      <div class="video-container">
+        <h3>Mídia Institucional</h3>
+        <iframe
+          width="320"
+          height="180"
+          src="https://www.youtube-nocookie.com/embed/jM7tqHHJoeY"
+          title="Trailer Promocional Pokémon"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
 
       <!-- Aside (id="curiosidades") -->
       <aside id="curiosidades" class="section-bloco curiosidades-box">
