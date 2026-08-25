@@ -1863,21 +1863,24 @@
     />
   </div>
 
-  <!-- 6. Textarea -->
-  <div class="campo-form">
-    <label for="mensagem">Motivação da jornada:</label>
-    <textarea
-      id="mensagem"
-      name="mensagem"
-      rows="5"
-      minlength="10"
-      maxlength="500"
-      aria-describedby="limite-mensagem"
-      required
-    ></textarea>
-    <small id="limite-mensagem">Máximo de 500 caracteres.</small>
-  </div>
+  <!-- 6. Textarea com contador de caracteres -->
+<div class="campo-form">
+  <label for="mensagem">Motivação da jornada:</label>
 
+  <textarea
+    id="mensagem"
+    name="mensagem"
+    rows="5"
+    minlength="10"
+    maxlength="500"
+    aria-describedby="limite-mensagem"
+    required
+  ></textarea>
+
+  <small id="limite-mensagem">
+    500 caracteres restantes.
+  </small>
+</div>
   <!-- 7. Checkbox -->
   <fieldset class="grupo-form">
     <legend>Preferências de comunicação</legend>
