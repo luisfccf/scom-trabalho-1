@@ -1441,3 +1441,99 @@ header nav a.link-nav[aria-current="page"] {
     flex-wrap: wrap;
   }
 }
+/* Botão para alternar o tema da interface. */
+.botao-tema {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #ffffff;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-tema:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.botao-tema:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 3px;
+}
+
+/* Cores principais utilizadas quando o tema escuro está ativo. */
+body.tema-escuro {
+  --bg-body: #0f172a;
+  --text-main: #f1f5f9;
+
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+/* Blocos de conteúdo. */
+body.tema-escuro .section-bloco,
+body.tema-escuro .section-carrossel,
+body.tema-escuro .card-regiao,
+body.tema-escuro .conteudo-tipo,
+body.tema-escuro .curiosidades-box {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+
+/* Textos e títulos. */
+body.tema-escuro p,
+body.tema-escuro li,
+body.tema-escuro label,
+body.tema-escuro legend,
+body.tema-escuro small,
+body.tema-escuro dt,
+body.tema-escuro dd,
+body.tema-escuro figcaption,
+body.tema-escuro h3 {
+  color: #f1f5f9;
+}
+
+/* Títulos das seções. */
+body.tema-escuro h2 {
+  color: #fda4af;
+  border-color: #fb7185;
+}
+
+/* Campos do formulário. */
+body.tema-escuro input,
+body.tema-escuro textarea,
+body.tema-escuro select {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  border-color: #64748b;
+}
+
+/* Campo de seleção de cor. */
+body.tema-escuro input[type="color"] {
+  padding: 0.25rem;
+}
+
+/* Citações. */
+body.tema-escuro blockquote {
+  background-color: #334155;
+  color: #f1f5f9;
+}
+
+/* Glossário e elementos expansíveis. */
+body.tema-escuro details,
+body.tema-escuro .glossario {
+  border-color: #475569;
+}
+
+/* Adaptação para celulares. */
+@media (max-width: 640px) {
+  .botao-tema {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+}

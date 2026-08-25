@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   /*
-   * 1. Preferência por movimento reduzido.
+   * 1. Preferência do usuário por movimento reduzido.
    */
   const preferenciaMovimentoReduzido = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
@@ -11,57 +11,108 @@ document.addEventListener('DOMContentLoaded', () => {
       ? 'auto'
       : 'smooth';
   }
+
   /*
- * Mostrar ou esconder a senha.
- */
-const campoSenha = document.querySelector('#senha');
+   * 2. Tema claro e escuro com armazenamento
+   * da preferência em localStorage.
+   */
+  const botaoAlternarTema = document.querySelector(
+    '#alternar-tema'
+  );
 
-const botaoAlternarSenha = document.querySelector(
-  '#alternar-senha'
-);
+  if (botaoAlternarTema) {
+    function atualizarBotaoTema(temaEscuroAtivo) {
+      botaoAlternarTema.textContent = temaEscuroAtivo
+        ? '☀️ Tema claro'
+        : '🌙 Tema escuro';
 
-if (campoSenha && botaoAlternarSenha) {
-  botaoAlternarSenha.addEventListener('click', () => {
-    const senhaEstaOculta =
-      campoSenha.type === 'password';
+      botaoAlternarTema.setAttribute(
+        'aria-pressed',
+        String(temaEscuroAtivo)
+      );
+    }
 
-    campoSenha.type = senhaEstaOculta
-      ? 'text'
-      : 'password';
+    /*
+     * Recupera o tema salvo em uma visita anterior.
+     */
+    let temaSalvo = null;
 
-    botaoAlternarSenha.textContent = senhaEstaOculta
-      ? 'Esconder senha'
-      : 'Mostrar senha';
+    try {
+      temaSalvo = localStorage.getItem(
+        'tema-mundo-pokemon'
+      );
+    } catch (erro) {
+      /*
+       * Mantém o funcionamento do site mesmo quando
+       * o navegador restringe o acesso ao localStorage.
+       */
+      temaSalvo = null;
+    }
 
-    botaoAlternarSenha.setAttribute(
-      'aria-pressed',
-      String(senhaEstaOculta)
+    const temaEscuroSalvo = temaSalvo === 'escuro';
+
+    document.body.classList.toggle(
+      'tema-escuro',
+      temaEscuroSalvo
     );
-  });
-}
+
+    atualizarBotaoTema(
+      temaEscuroSalvo
+    );
+
+    /*
+     * Alterna o tema e registra a nova preferência.
+     */
+    botaoAlternarTema.addEventListener('click', () => {
+      const temaEscuroAtivo = document.body.classList.toggle(
+        'tema-escuro'
+      );
+
+      try {
+        localStorage.setItem(
+          'tema-mundo-pokemon',
+          temaEscuroAtivo
+            ? 'escuro'
+            : 'claro'
+        );
+      } catch (erro) {
+        /*
+         * A troca de tema continua funcionando mesmo
+         * se o armazenamento não estiver disponível.
+         */
+      }
+
+      atualizarBotaoTema(
+        temaEscuroAtivo
+      );
+    });
+  }
 
   /*
-   * 2. Retornar ao topo da página.
+   * 3. Retorno acessível ao topo da página.
    */
   const linkVoltarTopo = document.querySelector(
     '#voltar-topo'
   );
 
   if (linkVoltarTopo) {
-    linkVoltarTopo.addEventListener('click', (evento) => {
-      evento.preventDefault();
+    linkVoltarTopo.addEventListener(
+      'click',
+      (evento) => {
+        evento.preventDefault();
 
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: obterComportamentoRolagem()
-      });
-    });
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: obterComportamentoRolagem()
+        });
+      }
+    );
   }
 
   /*
-   * 3. E-mail obrigatório quando o usuário deseja
-   * receber novidades.
+   * 4. O e-mail passa a ser obrigatório quando
+   * o usuário deseja receber novidades.
    */
   const checkboxNovidades = document.querySelector(
     '#novidades'
@@ -95,7 +146,41 @@ if (campoSenha && botaoAlternarSenha) {
   }
 
   /*
-   * 4. Contador de caracteres da motivação da jornada.
+   * 5. Mostrar e esconder a senha do formulário.
+   */
+  const campoSenha = document.querySelector(
+    '#senha'
+  );
+
+  const botaoAlternarSenha = document.querySelector(
+    '#alternar-senha'
+  );
+
+  if (campoSenha && botaoAlternarSenha) {
+    botaoAlternarSenha.addEventListener(
+      'click',
+      () => {
+        const senhaEstaOculta =
+          campoSenha.type === 'password';
+
+        campoSenha.type = senhaEstaOculta
+          ? 'text'
+          : 'password';
+
+        botaoAlternarSenha.textContent = senhaEstaOculta
+          ? 'Esconder senha'
+          : 'Mostrar senha';
+
+        botaoAlternarSenha.setAttribute(
+          'aria-pressed',
+          String(senhaEstaOculta)
+        );
+      }
+    );
+  }
+
+  /*
+   * 6. Contador de caracteres da motivação da jornada.
    */
   const campoMensagem = document.querySelector(
     '#mensagem'
@@ -109,7 +194,8 @@ if (campoSenha && botaoAlternarSenha) {
     function atualizarContadorCaracteres() {
       const limiteCaracteres = campoMensagem.maxLength;
 
-      const caracteresDigitados = campoMensagem.value.length;
+      const caracteresDigitados =
+        campoMensagem.value.length;
 
       const caracteresRestantes =
         limiteCaracteres - caracteresDigitados;
@@ -134,7 +220,7 @@ if (campoSenha && botaoAlternarSenha) {
   }
 
   /*
-   * 5. Validação da data de nascimento.
+   * 7. Validação da data de nascimento.
    */
   const campoDataNascimento = document.querySelector(
     '#data-nascimento'
@@ -146,6 +232,7 @@ if (campoSenha && botaoAlternarSenha) {
 
   if (campoDataNascimento && statusDataNascimento) {
     const idadeMinima = 10;
+
     const idadeMaxima = 120;
 
     function formatarDataParaInput(data) {
@@ -165,7 +252,12 @@ if (campoSenha && botaoAlternarSenha) {
     function obterDataLimite(anos) {
       const data = new Date();
 
-      data.setHours(0, 0, 0, 0);
+      data.setHours(
+        0,
+        0,
+        0,
+        0
+      );
 
       data.setFullYear(
         data.getFullYear() - anos
@@ -242,7 +334,12 @@ if (campoSenha && botaoAlternarSenha) {
 
       const hoje = new Date();
 
-      hoje.setHours(0, 0, 0, 0);
+      hoje.setHours(
+        0,
+        0,
+        0,
+        0
+      );
 
       if (dataNascimento > hoje) {
         campoDataNascimento.setCustomValidity(
@@ -302,61 +399,68 @@ if (campoSenha && botaoAlternarSenha) {
   }
 
   /*
-   * 6. Rolagem acessível para os links do menu.
+   * 8. Rolagem suave para as seções do menu.
    */
   const menuLinks = document.querySelectorAll(
     'header nav a[href^="#"]'
   );
 
   menuLinks.forEach((link) => {
-    link.addEventListener('click', (evento) => {
-      evento.preventDefault();
+    link.addEventListener(
+      'click',
+      (evento) => {
+        const destinoId = link.getAttribute(
+          'href'
+        );
 
-      const destinoId = link.getAttribute(
-        'href'
-      );
+        if (!destinoId || destinoId === '#') {
+          return;
+        }
 
-      const destino = document.querySelector(
-        destinoId
-      );
+        const destino = document.querySelector(
+          destinoId
+        );
 
-      if (!destino) {
-        return;
+        if (!destino) {
+          return;
+        }
+
+        evento.preventDefault();
+
+        const cabecalho = document.querySelector(
+          'header'
+        );
+
+        const alturaCabecalho =
+          cabecalho?.offsetHeight || 70;
+
+        const posicaoDestino =
+          destino.getBoundingClientRect().top +
+          window.scrollY;
+
+        window.scrollTo({
+          top:
+            posicaoDestino -
+            alturaCabecalho -
+            10,
+
+          behavior: obterComportamentoRolagem()
+        });
+
+        destino.setAttribute(
+          'tabindex',
+          '-1'
+        );
+
+        destino.focus({
+          preventScroll: true
+        });
       }
-
-      const cabecalho = document.querySelector(
-        'header'
-      );
-
-      const alturaCabecalho =
-        cabecalho?.offsetHeight || 70;
-
-      const posicaoDestino =
-        destino.getBoundingClientRect().top +
-        window.scrollY;
-
-      window.scrollTo({
-        top:
-          posicaoDestino -
-          alturaCabecalho -
-          10,
-
-        behavior: obterComportamentoRolagem()
-      });
-
-      destino.setAttribute(
-        'tabindex',
-        '-1'
-      );
-
-      destino.focus({
-        preventScroll: true
-      });
-    });
+    );
   });
 
   /*
-   * 7. Elementos do carrossel.
+   * 9. Elementos necessários para o carrossel.
    */
   const carrossel = document.querySelector(
     '#carrossel-iniciais'
@@ -393,7 +497,7 @@ if (campoSenha && botaoAlternarSenha) {
     let animacaoPausada = false;
 
     /*
-     * 8. Distância de movimentação do carrossel.
+     * 10. Distância utilizada nos movimentos do carrossel.
      */
     function obterDistanciaRolagem() {
       return Math.max(
@@ -405,6 +509,7 @@ if (campoSenha && botaoAlternarSenha) {
     function rolarParaAnterior() {
       carrossel.scrollBy({
         left: -obterDistanciaRolagem(),
+
         behavior: obterComportamentoRolagem()
       });
     }
@@ -412,12 +517,13 @@ if (campoSenha && botaoAlternarSenha) {
     function rolarParaProximo() {
       carrossel.scrollBy({
         left: obterDistanciaRolagem(),
+
         behavior: obterComportamentoRolagem()
       });
     }
 
     /*
-     * 9. Botões anterior e próximo.
+     * 11. Botões de navegação.
      */
     botaoAnterior.addEventListener(
       'click',
@@ -430,7 +536,7 @@ if (campoSenha && botaoAlternarSenha) {
     );
 
     /*
-     * 10. Botão para pausar ou continuar a animação.
+     * 12. Pausar ou continuar a animação.
      */
     botaoPausar.addEventListener(
       'click',
@@ -439,6 +545,7 @@ if (campoSenha && botaoAlternarSenha) {
 
         botaoPausar.setAttribute(
           'aria-pressed',
+
           String(animacaoPausada)
         );
 
@@ -449,10 +556,11 @@ if (campoSenha && botaoAlternarSenha) {
     );
 
     /*
-     * 11. Navegação utilizando as setas do teclado.
+     * 13. Navegação utilizando as setas do teclado.
      */
     carrossel.addEventListener(
       'keydown',
+
       (evento) => {
         if (evento.key === 'ArrowLeft') {
           evento.preventDefault();
@@ -469,10 +577,11 @@ if (campoSenha && botaoAlternarSenha) {
     );
 
     /*
-     * 12. Pausa durante a navegação por teclado.
+     * 14. Pausa quando o carrossel recebe foco.
      */
     carrossel.addEventListener(
       'focusin',
+
       () => {
         carrosselComFoco = true;
       }
@@ -480,16 +589,18 @@ if (campoSenha && botaoAlternarSenha) {
 
     carrossel.addEventListener(
       'focusout',
+
       () => {
         carrosselComFoco = false;
       }
     );
 
     /*
-     * 13. Pausa enquanto o mouse está sobre o carrossel.
+     * 15. Pausa enquanto o mouse está sobre o carrossel.
      */
     carrossel.addEventListener(
       'mouseenter',
+
       () => {
         ponteiroSobreCarrossel = true;
       }
@@ -497,6 +608,7 @@ if (campoSenha && botaoAlternarSenha) {
 
     carrossel.addEventListener(
       'mouseleave',
+
       () => {
         ponteiroSobreCarrossel = false;
 
@@ -509,10 +621,11 @@ if (campoSenha && botaoAlternarSenha) {
     );
 
     /*
-     * 14. Arraste utilizando o mouse.
+     * 16. Arraste do carrossel utilizando o mouse.
      */
     carrossel.addEventListener(
       'mousedown',
+
       (evento) => {
         estaArrastando = true;
 
@@ -531,6 +644,7 @@ if (campoSenha && botaoAlternarSenha) {
 
     carrossel.addEventListener(
       'mouseup',
+
       () => {
         estaArrastando = false;
 
@@ -542,6 +656,7 @@ if (campoSenha && botaoAlternarSenha) {
 
     carrossel.addEventListener(
       'mousemove',
+
       (evento) => {
         if (!estaArrastando) {
           return;
@@ -566,7 +681,7 @@ if (campoSenha && botaoAlternarSenha) {
     );
 
     /*
-     * 15. Rolagem automática do carrossel.
+     * 17. Rolagem automática do carrossel.
      */
     function executarRolagemAutomatica() {
       const limiteMaximo =
