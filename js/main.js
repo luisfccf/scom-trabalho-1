@@ -11,6 +11,34 @@ document.addEventListener('DOMContentLoaded', () => {
       ? 'auto'
       : 'smooth';
   }
+  /*
+ * Mostrar ou esconder a senha.
+ */
+const campoSenha = document.querySelector('#senha');
+
+const botaoAlternarSenha = document.querySelector(
+  '#alternar-senha'
+);
+
+if (campoSenha && botaoAlternarSenha) {
+  botaoAlternarSenha.addEventListener('click', () => {
+    const senhaEstaOculta =
+      campoSenha.type === 'password';
+
+    campoSenha.type = senhaEstaOculta
+      ? 'text'
+      : 'password';
+
+    botaoAlternarSenha.textContent = senhaEstaOculta
+      ? 'Esconder senha'
+      : 'Mostrar senha';
+
+    botaoAlternarSenha.setAttribute(
+      'aria-pressed',
+      String(senhaEstaOculta)
+    );
+  });
+}
 
   /*
    * 2. Retornar ao topo da página.

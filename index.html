@@ -1800,9 +1800,11 @@
     />
   </div>
 
-  <!-- 2. Password -->
-  <div class="campo-form">
-    <label for="senha">Senha:</label>
+  <!-- 2. Password com botão para mostrar ou esconder -->
+<div class="campo-form">
+  <label for="senha">Senha:</label>
+
+  <div class="campo-senha">
     <input
       type="password"
       id="senha"
@@ -1813,10 +1815,21 @@
       required
       aria-describedby="ajuda-senha"
     />
-    <small id="ajuda-senha">
-      Utilize pelo menos oito caracteres.
-    </small>
+
+    <button
+      type="button"
+      id="alternar-senha"
+      aria-controls="senha"
+      aria-pressed="false"
+    >
+      Mostrar senha
+    </button>
   </div>
+
+  <small id="ajuda-senha">
+    Utilize pelo menos oito caracteres.
+  </small>
+</div>
 
   <!-- 3. Number -->
   <div class="campo-form">
