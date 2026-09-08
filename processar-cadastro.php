@@ -4,7 +4,7 @@ require __DIR__ . '/config/conexao.php';
 
 /**
  * Escapa textos antes de exibi-los no HTML,
- * protegendo a página contra XSS.
+ * protegendo a página contra ataques XSS.
  */
 function escapar(string $valor): string
 {
@@ -15,6 +15,10 @@ function escapar(string $valor): string
     );
 }
 
+/*
+ * Impede o acesso direto à página sem o envio
+ * do formulário pelo método POST.
+ */
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     exit('Método não permitido.');
@@ -51,10 +55,13 @@ $dataNascimento = trim(
 
 $horario = trim($_POST['horario'] ?? '');
 $cor = trim($_POST['cor'] ?? '');
-$termosAceitos = isset($_POST['termos']);
+
+$termosAceitos = isset(
+    $_POST['termos']
+);
 
 /*
- * Arrays usados para validar as opções permitidas.
+ * Arrays com as opções aceitas pelo sistema.
  */
 $experienciasPermitidas = [
     'iniciante',
@@ -75,7 +82,8 @@ $regioesPermitidas = [
 ];
 
 /*
- * Array que reúne todas as mensagens de erro.
+ * Array utilizado para armazenar e manipular
+ * as mensagens de validação.
  */
 $erros = [];
 
@@ -112,7 +120,8 @@ if ($email !== '') {
         ) ||
         mb_strlen($email) > 150
     ) {
-        $erros[] = 'Informe um e-mail válido.';
+        $erros[] =
+            'Informe um e-mail válido.';
     }
 }
 
@@ -169,7 +178,7 @@ if (
 }
 
 /*
- * Validação da data e da idade do treinador.
+ * Validação da data de nascimento e da idade.
  */
 $dataObjeto = DateTimeImmutable::createFromFormat(
     '!Y-m-d',
@@ -178,7 +187,8 @@ $dataObjeto = DateTimeImmutable::createFromFormat(
 
 $dataValida =
     $dataObjeto !== false &&
-    $dataObjeto->format('Y-m-d') === $dataNascimento;
+    $dataObjeto->format('Y-m-d') ===
+        $dataNascimento;
 
 if (!$dataValida) {
     $erros[] =
@@ -229,7 +239,7 @@ $cadastroRealizado = false;
 if ($erros === []) {
     /*
      * A senha nunca é armazenada diretamente.
-     * Somente seu hash seguro é salvo no banco.
+     * Somente o hash seguro é salvo no banco.
      */
     $senhaHash = password_hash(
         $senha,
@@ -238,7 +248,8 @@ if ($erros === []) {
 
     try {
         /*
-         * Consulta parametrizada para impedir SQL Injection.
+         * Consulta parametrizada para impedir
+         * ataques de SQL Injection.
          */
         $comando = $pdo->prepare(
             'INSERT INTO treinadores (
@@ -276,28 +287,39 @@ if ($erros === []) {
             'nome' => $nome,
             'senha_hash' => $senhaHash,
             'nivel' => $nivel,
+
             'email' => $email !== ''
                 ? $email
                 : null,
+
             'perfil_url' => $perfilUrl !== ''
                 ? $perfilUrl
                 : null,
+
             'motivacao' => $motivacao,
+
             'novidades' => $novidades
                 ? 1
                 : 0,
+
             'experiencia' => $experiencia,
             'regiao' => $regiao,
-            'data_nascimento' => $dataNascimento,
-            'horario_preferido' => $horario,
+
+            'data_nascimento' =>
+                $dataNascimento,
+
+            'horario_preferido' =>
+                $horario,
+
             'cor_uniforme' => $cor,
             'termos_aceitos' => 1
         ]);
 
         $cadastroRealizado = true;
+
         http_response_code(201);
-    } catch (PDOException $erro) {
-        if ($erro->getCode() === '23000') {
+    } catch (PDOException $erroBanco) {
+        if ($erroBanco->getCode() === '23000') {
             $erros[] =
                 'O e-mail informado já está cadastrado.';
 
@@ -313,91 +335,227 @@ if ($erros === []) {
     http_response_code(422);
 }
 
+/*
+ * Define o título usado pelo cabeçalho reutilizável.
+ */
+$tituloPagina = $cadastroRealizado
+    ? 'Cadastro concluído'
+    : 'Erro no cadastro';
+
+/*
+ * Inclui o HTML do cabeçalho a partir de outro script.
+ */
+require __DIR__ . '/includes/cabecalho.php';
+
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
+<main
+    id="conteudo-principal"
+    class="resultado-cadastro-container"
+>
+    <section
+        class="cartao-resultado <?= $cadastroRealizado
+            ? 'resultado-sucesso'
+            : 'resultado-erro' ?>"
+        aria-labelledby="titulo-resultado"
     >
+        <div class="resultado-conteudo">
+            <?php if (!$cadastroRealizado): ?>
+                <span
+                    class="resultado-etiqueta etiqueta-erro"
+                >
+                    CADASTRO NÃO REALIZADO
+                </span>
 
-    <title>Resultado do cadastro</title>
+                <h2 id="titulo-resultado">
+                    Não foi possível concluir seu cadastro
+                </h2>
 
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <main>
-        <?php if (!$cadastroRealizado): ?>
-            <h1>Cadastro não realizado</h1>
+                <p class="resultado-introducao">
+                    Confira os itens abaixo e tente novamente.
+                </p>
 
-            <p>
-                Corrija os seguintes problemas:
-            </p>
+                <ul class="lista-erros">
+                    <?php foreach (
+                        $erros as $mensagemErro
+                    ): ?>
+                        <li>
+                            <?= escapar($mensagemErro) ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
 
-            <ul>
-                <?php foreach ($erros as $mensagemErro): ?>
-                    <li>
-                        <?= escapar($mensagemErro) ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-
-            <p>
-                <a href="index.html#contato">
-                    Voltar ao formulário
+                <a
+                    href="index.html#contato"
+                    class="botao-resultado"
+                >
+                    Corrigir formulário
                 </a>
-            </p>
-        <?php else: ?>
-            <h1>Cadastro realizado com sucesso!</h1>
+            <?php else: ?>
+                <span
+                    class="resultado-etiqueta etiqueta-sucesso"
+                >
+                    ✓ CADASTRO CONCLUÍDO
+                </span>
 
-            <p>
-                <strong>Nome:</strong>
-                <?= escapar($nome) ?>
-            </p>
+                <h2 id="titulo-resultado">
+                    Bem-vindo à Liga Pokémon!
+                </h2>
 
-            <p>
-                <strong>Nível:</strong>
-                <?= escapar((string) $nivel) ?>
-            </p>
+                <p class="resultado-introducao">
+                    Seu perfil de treinador foi criado
+                    com sucesso. Confira os dados:
+                </p>
 
-            <p>
-                <strong>E-mail:</strong>
-                <?= escapar(
-                    $email !== ''
-                        ? $email
-                        : 'Não informado'
-                ) ?>
-            </p>
+                <dl class="grade-dados-treinador">
+                    <div
+                        class="dado-treinador dado-nome"
+                    >
+                        <dt>
+                            <span aria-hidden="true">
+                                👤
+                            </span>
+                            Nome
+                        </dt>
 
-            <p>
-                <strong>Experiência:</strong>
-                <?= escapar($experiencia) ?>
-            </p>
+                        <dd><?= escapar($nome) ?></dd>
+                    </div>
 
-            <p>
-                <strong>Região:</strong>
-                <?= escapar($regiao) ?>
-            </p>
+                    <div
+                        class="dado-treinador dado-nivel"
+                    >
+                        <dt>
+                            <span aria-hidden="true">
+                                ⭐
+                            </span>
+                            Nível
+                        </dt>
 
-            <p>
-                <strong>Motivação:</strong>
-                <?= escapar($motivacao) ?>
-            </p>
+                        <dd>
+                            <?= escapar(
+                                (string) $nivel
+                            ) ?>
+                        </dd>
+                    </div>
 
-            <p>
-                <strong>Receber novidades:</strong>
-                <?= $novidades ? 'Sim' : 'Não' ?>
-            </p>
+                    <div
+                        class="dado-treinador dado-email"
+                    >
+                        <dt>
+                            <span aria-hidden="true">
+                                ✉️
+                            </span>
+                            E-mail
+                        </dt>
 
-            <p>
-                <a href="index.html">
-                    Voltar à página inicial
-                </a>
-            </p>
-        <?php endif; ?>
-    </main>
-</body>
-</html>
+                        <dd>
+                            <?= escapar(
+                                $email !== ''
+                                    ? $email
+                                    : 'Não informado'
+                            ) ?>
+                        </dd>
+                    </div>
+
+                    <div
+                        class="dado-treinador dado-experiencia"
+                    >
+                        <dt>
+                            <span aria-hidden="true">
+                                🏆
+                            </span>
+                            Experiência
+                        </dt>
+
+                        <dd>
+                            <?= escapar(
+                                ucfirst($experiencia)
+                            ) ?>
+                        </dd>
+                    </div>
+
+                    <div
+                        class="dado-treinador dado-regiao"
+                    >
+                        <dt>
+                            <span aria-hidden="true">
+                                🗺️
+                            </span>
+                            Região
+                        </dt>
+
+                        <dd>
+                            <?= escapar(
+                                ucfirst($regiao)
+                            ) ?>
+                        </dd>
+                    </div>
+
+                    <div
+                        class="dado-treinador dado-novidades"
+                    >
+                        <dt>
+                            <span aria-hidden="true">
+                                📢
+                            </span>
+                            Novidades
+                        </dt>
+
+                        <dd>
+                            <?= $novidades
+                                ? 'Sim'
+                                : 'Não' ?>
+                        </dd>
+                    </div>
+                </dl>
+
+                <div class="motivacao-resultado">
+                    <h3>
+                        <span aria-hidden="true">💬</span>
+                        Motivação da jornada
+                    </h3>
+
+                    <p><?= escapar($motivacao) ?></p>
+                </div>
+
+                <div class="acoes-resultado">
+                    <a
+                        href="index.html"
+                        class="botao-resultado"
+                    >
+                        Voltar à página inicial
+                    </a>
+
+                    <a
+                        href="index.html#contato"
+                        class="botao-resultado-secundario"
+                    >
+                        Novo cadastro
+                    </a>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <figure class="resultado-ilustracao">
+            <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+                alt="Pikachu representando a conclusão do cadastro"
+                width="280"
+                height="280"
+            >
+
+            <figcaption>
+                Sua jornada Pokémon começa agora!
+            </figcaption>
+        </figure>
+    </section>
+</main>
+
+<?php
+
+/*
+ * Inclui o HTML do rodapé a partir de outro script.
+ */
+require __DIR__ . '/includes/rodape.php';
+
+?>
