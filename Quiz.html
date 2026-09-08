@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="Quiz interativo com cinco perguntas sobre personagens, regiões, tipos e batalhas do universo Pokémon."
+    />
+
+    <title>Quiz Pokémon - Teste seus conhecimentos</title>
+
+    <link
+      rel="stylesheet"
+      href="css/styles.css"
+    />
+
+    <script
+      src="js/quiz.js"
+      defer
+    ></script>
+  </head>
+
+  <body
+    id="topo"
+    class="pagina-quiz"
+  >
+    <a
+      href="#conteudo-quiz"
+      class="skip-link"
+    >
+      Pular para o conteúdo principal
+    </a>
+
+    <header>
+      <div class="header-container">
+        <h1>
+          Quiz Pokémon
+        </h1>
+
+        <button
+          type="button"
+          id="alternar-tema"
+          class="botao-tema"
+          aria-pressed="false"
+        >
+          🌙 Tema escuro
+        </button>
+
+        <nav aria-label="Navegação do quiz">
+          <ul>
+            <li>
+              <a
+                href="index.html"
+                class="link-nav"
+              >
+                Voltar ao início
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="pokedex.html"
+                class="link-nav"
+              >
+                Pokédex
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main
+      id="conteudo-quiz"
+      class="quiz-container"
+    >
+      <section
+        class="section-bloco quiz-apresentacao"
+        aria-labelledby="titulo-quiz"
+      >
+        <div class="quiz-apresentacao-conteudo">
+          <span class="quiz-etiqueta">
+            ACADEMIA DE TREINADORES
+          </span>
+
+          <h2 id="titulo-quiz">
+            Você é um verdadeiro Mestre Pokémon?
+          </h2>
+
+          <p class="quiz-descricao">
+            Responda às cinco perguntas e descubra se você
+            está preparado para sua próxima batalha Pokémon.
+          </p>
+
+          <div
+            class="quiz-informacoes"
+            aria-label="Informações sobre o desafio"
+          >
+            <span>
+              <span aria-hidden="true">🎯</span>
+              5 desafios
+            </span>
+
+            <span>
+              <span aria-hidden="true">⚡</span>
+              Respostas imediatas
+            </span>
+
+            <span>
+              <span aria-hidden="true">🏆</span>
+              Pontuação final
+            </span>
+          </div>
+
+          <p
+            id="progresso-quiz"
+            class="progresso-quiz"
+            aria-live="polite"
+          >
+            Perguntas respondidas: 0 de 5.
+          </p>
+        </div>
+
+        <figure class="quiz-apresentacao-imagem">
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png"
+            alt="Mewtwo representando o desafio de conhecimentos Pokémon"
+            width="230"
+            height="230"
+          />
+
+          <figcaption>
+            Mostre suas habilidades de treinador.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section
+        class="section-bloco pergunta-quiz"
+        data-correta="pikachu"
+        data-explicacao="Pikachu é o principal mascote da franquia Pokémon."
+        aria-labelledby="titulo-pergunta-1"
+      >
+        <h2 id="titulo-pergunta-1">
+          1. Qual Pokémon é considerado o mascote da franquia?
+        </h2>
+
+        <div
+          class="alternativas-quiz"
+          role="group"
+          aria-label="Alternativas da pergunta 1"
+        >
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="charmander"
+          >
+            Charmander
+          </button>
+
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="pikachu"
+          >
+            Pikachu
+          </button>
+
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="bulbasaur"
+          >
+            Bulbasaur
+          </button>
+        </div>
+
+        <p
+          class="feedback-quiz"
+          role="status"
+        ></p>
+      </section>
+
+      <section
+        class="section-bloco pergunta-quiz"
+        data-correta="agua"
+        data-explicacao="Golpes do tipo Água são supereficazes contra Pokémon do tipo Fogo."
+        aria-labelledby="titulo-pergunta-2"
+      >
+        <h2 id="titulo-pergunta-2">
+          2. Qual tipo possui vantagem contra Pokémon do tipo Fogo?
+        </h2>
+
+        <div
+          class="alternativas-quiz"
+          role="group"
+          aria-label="Alternativas da pergunta 2"
+        >
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="planta"
+          >
+            Planta
+          </button>
+
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="agua"
+          >
+            Água
+          </button>
+
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="gelo"
+          >
+            Gelo
+          </button>
+        </div>
+
+        <p
+          class="feedback-quiz"
+          role="status"
+        ></p>
+      </section>
+
+      <section
+        class="section-bloco pergunta-quiz"
+        data-correta="kanto"
+        data-explicacao="Kanto é a região apresentada nos primeiros jogos principais da franquia Pokémon."
+        aria-labelledby="titulo-pergunta-3"
+      >
+        <h2 id="titulo-pergunta-3">
+          3. Qual região aparece nos primeiros jogos principais?
+        </h2>
+
+        <div
+          class="alternativas-quiz"
+          role="group"
+          aria-label="Alternativas da pergunta 3"
+        >
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="kanto"
+          >
+            Kanto
+          </button>
+
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="galar"
+          >
+            Galar
+          </button>
+
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="paldea"
+          >
+            Paldea
+          </button>
+        </div>
+
+        <p
+          class="feedback-quiz"
+          role="status"
+        ></p>
+      </section>
+
+      <section
+        class="section-bloco pergunta-quiz"
+        data-correta="eletrico"
+        data-explicacao="Pikachu pertence ao tipo Elétrico e utiliza ataques como Choque do Trovão."
+        aria-labelledby="titulo-pergunta-4"
+      >
+        <h2 id="titulo-pergunta-4">
+          4. Qual é o tipo principal do Pikachu?
+        </h2>
+
+        <div
+          class="alternativas-quiz"
+          role="group"
+          aria-label="Alternativas da pergunta 4"
+        >
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="fogo"
+          >
+            Fogo
+          </button>
+
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="eletrico"
+          >
+            Elétrico
+          </button>
+
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="psiquico"
+          >
+            Psíquico
+          </button>
+        </div>
+
+        <p
+          class="feedback-quiz"
+          role="status"
+        ></p>
+      </section>
+
+      <section
+        class="section-bloco pergunta-quiz"
+        data-correta="terra"
+        data-explicacao="Pokémon do tipo Terra são imunes aos golpes do tipo Elétrico."
+        aria-labelledby="titulo-pergunta-5"
+      >
+        <h2 id="titulo-pergunta-5">
+          5. Qual tipo é imune aos golpes do tipo Elétrico?
+        </h2>
+
+        <div
+          class="alternativas-quiz"
+          role="group"
+          aria-label="Alternativas da pergunta 5"
+        >
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="agua"
+          >
+            Água
+          </button>
+
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="voador"
+          >
+            Voador
+          </button>
+
+          <button
+            type="button"
+            class="alternativa-quiz"
+            data-resposta="terra"
+          >
+            Terra
+          </button>
+        </div>
+
+        <p
+          class="feedback-quiz"
+          role="status"
+        ></p>
+      </section>
+
+      <section
+        id="resultado-quiz"
+        class="section-bloco resultado-quiz"
+        aria-labelledby="titulo-resultado"
+        hidden
+      >
+        <h2 id="titulo-resultado">
+          Resultado do desafio
+        </h2>
+
+        <p
+          id="pontuacao-quiz"
+          class="pontuacao-quiz"
+        ></p>
+
+        <p id="mensagem-resultado"></p>
+
+        <button
+          type="button"
+          id="reiniciar-quiz"
+          class="botao-quiz"
+        >
+          Refazer o quiz
+        </button>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Mundo Pokémon:</strong>
+        teste seus conhecimentos.
+      </p>
+
+      <p>
+        <strong>Conformidade:</strong>
+        interface desenvolvida com foco em acessibilidade.
+      </p>
+
+      <a href="index.html">
+        Retornar à página inicial
+      </a>
+    </footer>
+  </body>
+</html>
