@@ -232,7 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (campoDataNascimento && statusDataNascimento) {
     const idadeMinima = 10;
-
     const idadeMaxima = 120;
 
     function formatarDataParaInput(data) {
@@ -485,15 +484,10 @@ document.addEventListener('DOMContentLoaded', () => {
     botaoPausar
   ) {
     let estaArrastando = false;
-
     let posicaoInicialX = 0;
-
     let rolagemInicial = 0;
-
     let ponteiroSobreCarrossel = false;
-
     let carrosselComFoco = false;
-
     let animacaoPausada = false;
 
     /*
@@ -509,7 +503,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function rolarParaAnterior() {
       carrossel.scrollBy({
         left: -obterDistanciaRolagem(),
-
         behavior: obterComportamentoRolagem()
       });
     }
@@ -517,7 +510,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function rolarParaProximo() {
       carrossel.scrollBy({
         left: obterDistanciaRolagem(),
-
         behavior: obterComportamentoRolagem()
       });
     }
@@ -545,7 +537,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         botaoPausar.setAttribute(
           'aria-pressed',
-
           String(animacaoPausada)
         );
 
@@ -560,17 +551,14 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     carrossel.addEventListener(
       'keydown',
-
       (evento) => {
         if (evento.key === 'ArrowLeft') {
           evento.preventDefault();
-
           rolarParaAnterior();
         }
 
         if (evento.key === 'ArrowRight') {
           evento.preventDefault();
-
           rolarParaProximo();
         }
       }
@@ -581,7 +569,6 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     carrossel.addEventListener(
       'focusin',
-
       () => {
         carrosselComFoco = true;
       }
@@ -589,7 +576,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carrossel.addEventListener(
       'focusout',
-
       () => {
         carrosselComFoco = false;
       }
@@ -600,7 +586,6 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     carrossel.addEventListener(
       'mouseenter',
-
       () => {
         ponteiroSobreCarrossel = true;
       }
@@ -608,10 +593,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carrossel.addEventListener(
       'mouseleave',
-
       () => {
         ponteiroSobreCarrossel = false;
-
         estaArrastando = false;
 
         carrossel.classList.remove(
@@ -625,7 +608,6 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     carrossel.addEventListener(
       'mousedown',
-
       (evento) => {
         estaArrastando = true;
 
@@ -644,7 +626,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carrossel.addEventListener(
       'mouseup',
-
       () => {
         estaArrastando = false;
 
@@ -656,7 +637,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carrossel.addEventListener(
       'mousemove',
-
       (evento) => {
         if (!estaArrastando) {
           return;
@@ -681,34 +661,62 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     /*
-     * 17. Rolagem automática do carrossel.
-     */
-    function executarRolagemAutomatica() {
-      const limiteMaximo =
-        carrossel.scrollWidth -
-        carrossel.clientWidth;
+ * 17. Rolagem automática otimizada do carrossel.
+ *
+ * Mantém o movimento contínuo, mas limita a atualização
+ * para aproximadamente 30 FPS, reduzindo o trabalho
+ * realizado pela thread principal.
+ */
 
-      const podeMovimentar =
-        !preferenciaMovimentoReduzido.matches &&
-        !animacaoPausada &&
-        !estaArrastando &&
-        !ponteiroSobreCarrossel &&
-        !carrosselComFoco;
+let ultimoTempoAnimacao = 0;
+const intervaloAnimacao = 1000 / 30;
 
-      if (
-        podeMovimentar &&
-        carrossel.scrollLeft < limiteMaximo
-      ) {
-        carrossel.scrollLeft += 1;
-      }
+function executarRolagemAutomatica(tempoAtual) {
+  window.requestAnimationFrame(
+    executarRolagemAutomatica
+  );
 
-      window.requestAnimationFrame(
-        executarRolagemAutomatica
-      );
-    }
+  if (
+    tempoAtual - ultimoTempoAnimacao <
+    intervaloAnimacao
+  ) {
+    return;
+  }
 
-    window.requestAnimationFrame(
-      executarRolagemAutomatica
-    );
+  ultimoTempoAnimacao = tempoAtual;
+
+  const podeMovimentar =
+    !preferenciaMovimentoReduzido.matches &&
+    !animacaoPausada &&
+    !estaArrastando &&
+    !ponteiroSobreCarrossel &&
+    !carrosselComFoco;
+
+  if (!podeMovimentar) {
+    return;
+  }
+
+  const limiteMaximo =
+    carrossel.scrollWidth -
+    carrossel.clientWidth;
+
+  if (limiteMaximo <= 0) {
+    return;
+  }
+
+  if (
+    carrossel.scrollLeft >=
+    limiteMaximo - 2
+  ) {
+    carrossel.scrollLeft = 0;
+    return;
+  }
+
+  carrossel.scrollLeft += 1;
+}
+
+window.requestAnimationFrame(
+  executarRolagemAutomatica
+);
   }
 });
