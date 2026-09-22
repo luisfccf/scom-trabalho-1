@@ -1,82 +1,89 @@
 # Mundo Pokémon — Interface Web Interativa
 
-Projeto acadêmico individual desenvolvido para a disciplina SCOM, com o objetivo de criar uma interface web moderna, semântica, responsiva e acessível utilizando HTML5, CSS3 e JavaScript.
+Projeto individual desenvolvido para a disciplina de Sistemas Computacionais (SCOM).
 
-## Objetivo
+A ideia do projeto foi criar um site sobre o universo Pokémon utilizando HTML, CSS e JavaScript, aplicando na prática conceitos de responsividade, acessibilidade, organização do código e interação com o usuário.
 
-Apresentar informações sobre o universo Pokémon por meio de uma interface interativa que reúne história da franquia, Pokémon iniciais, tipos elementares, vantagens em batalha e formulário de cadastro.
+## Sobre o projeto
 
-## Público-alvo
+O site reúne diferentes conteúdos relacionados ao universo Pokémon, como Pokémon iniciais, tipos, história da franquia, Pokédex e um quiz interativo.
 
-Estudantes, fãs da franquia Pokémon e usuários interessados em conhecer as características dos Pokémon e as relações entre seus diferentes tipos.
+Durante o desenvolvimento também foram adicionados recursos de acessibilidade, responsividade e algumas interações feitas com JavaScript.
 
-## Funcionalidades
+## Principais funcionalidades
 
-- Navegação entre as principais seções da página.
-- Carrossel interativo com Pokémon iniciais de diferentes regiões.
-- Controles acessíveis para avançar, retornar e pausar o carrossel.
-- Seção sobre a história do universo Pokémon.
-- Galeria com Pokémon de diferentes gerações.
-- Classificação dos Pokémon iniciais por região.
-- Guia interativo com os 18 tipos Pokémon.
-- Apresentação das vantagens e fraquezas de cada tipo.
-- Exemplos visuais de Pokémon representantes.
-- Página adicional de Pokédex.
+- Menu de navegação entre as principais áreas do site.
+- Carrossel com Pokémon iniciais de diferentes regiões.
+- Botões para avançar, voltar e pausar o carrossel.
+- Seção sobre a história de Pokémon.
+- Informações sobre os diferentes tipos Pokémon.
+- Exemplos de vantagens e fraquezas entre os tipos.
+- Página de Pokédex.
+- Quiz Pokémon.
 - Formulário de cadastro de treinadores.
-- Validação dinâmica de informações do formulário.
-- Link para retorno ao topo da página.
+- Validações de formulário com JavaScript.
+- Alternância de tema da interface.
+- Link para retornar ao topo da página.
 
 ## Tecnologias utilizadas
 
-- HTML5.
-- CSS3.
-- JavaScript.
+O projeto foi desenvolvido principalmente com:
+
+- HTML5;
+- CSS3;
+- JavaScript;
 - Git e GitHub.
-- Google Lighthouse.
-- W3C Nu HTML Checker.
-- W3C CSS Validator.
 
-O projeto foi desenvolvido sem frameworks, bibliotecas externas obrigatórias ou processos de compilação.
+Também foram utilizadas algumas ferramentas para testar e avaliar o projeto:
 
-## Como executar localmente
+- Google Lighthouse;
+- W3C Nu HTML Checker;
+- W3C CSS Validator;
+- Chrome DevTools.
 
-### Opção 1: abrir diretamente no navegador
+Não foram utilizados frameworks ou bibliotecas externas obrigatórias.
+
+## Como executar
+
+O projeto pode ser executado diretamente pelo navegador.
+
+### Opção 1 — Abrir normalmente
 
 1. Baixe ou clone o repositório.
 2. Abra a pasta do projeto.
-3. Clique duas vezes no arquivo `index.html`.
-4. Navegue normalmente pela interface.
+3. Abra o arquivo `index.html` no navegador.
 
-Não é necessário instalar dependências ou iniciar um servidor.
+Não é necessário instalar dependências.
 
-### Opção 2: clonar o repositório
-
-Execute:
+### Opção 2 — Clonar pelo Git
 
 ```bash
 git clone https://github.com/luisfccf/scom-trabalho-1.git
 ```
 
-Acesse a pasta:
+Depois entre na pasta:
 
 ```bash
 cd scom-trabalho-1
 ```
 
-Abra o arquivo:
+E abra o arquivo:
 
 ```text
 index.html
 ```
 
-### Opção 3: utilizar o Live Server
+### Opção 3 — Live Server
 
-1. Abra a pasta do projeto no Visual Studio Code.
-2. Instale a extensão Live Server, caso desejado.
-3. Clique com o botão direito em `index.html`.
-4. Selecione a opção **Open with Live Server**.
+Também é possível utilizar a extensão Live Server no Visual Studio Code.
 
-O Live Server é opcional e não é necessário para executar o projeto.
+Nesse caso:
+
+1. Abra a pasta do projeto no VS Code.
+2. Clique com o botão direito em `index.html`.
+3. Selecione **Open with Live Server**.
+
+O uso do Live Server é opcional.
 
 ## Estrutura do projeto
 
@@ -87,130 +94,146 @@ scom-trabalho-1/
 │   └── styles.css
 ├── evidencias/
 ├── js/
-│   └── main.js
+│   ├── main.js
+│   └── quiz.js
 ├── Prints e Versões/
 ├── index.html
 ├── pokedex.html
+├── Quiz.html
+├── processar-cadastro.php
 └── README.md
 ```
 
 ## Responsividade
 
-A interface foi desenvolvida para funcionar em diferentes tamanhos de tela.
+A interface foi desenvolvida para se adaptar a diferentes tamanhos de tela.
 
-Os principais formatos testados foram:
+Foram realizados testes nas seguintes resoluções:
 
-- Mobile: 390 × 844.
-- Tablet: 768 × 1024.
+- Mobile: 390 × 844;
+- Tablet: 768 × 1024;
 - Desktop: 1440 × 900.
 
-O layout utiliza CSS Grid, Flexbox e media queries para reorganizar menus, formulários, galerias e cartões.
+Para isso foram utilizados recursos como CSS Grid, Flexbox, unidades relativas e media queries.
+
+As capturas dos testes estão disponíveis na pasta `evidencias`.
 
 ## Acessibilidade
 
-O projeto adota práticas alinhadas à WCAG 2.2 nível AA:
+Durante o desenvolvimento foram aplicadas algumas práticas de acessibilidade, entre elas:
 
-- Estrutura semântica com `header`, `nav`, `main`, `section`, `article`, `aside`, `footer`, `figure` e `figcaption`.
-- Hierarquia lógica de títulos.
-- Navegação por teclado.
-- Foco visível em elementos interativos.
-- Textos alternativos nas imagens.
-- Associação entre `label` e campos do formulário.
-- Uso de atributos ARIA quando necessário.
-- Controles acessíveis no carrossel.
-- Suporte à preferência de movimento reduzido.
-- Contraste adequado entre texto e fundo.
+- uso de elementos HTML semânticos;
+- organização dos níveis de títulos;
+- navegação por teclado;
+- foco visível nos elementos interativos;
+- textos alternativos nas imagens;
+- associação de `label` aos campos do formulário;
+- utilização de atributos ARIA quando necessário;
+- controles acessíveis no carrossel;
+- suporte a `prefers-reduced-motion`;
+- preocupação com contraste e legibilidade.
+
+A navegação por teclado também foi testada manualmente.
 
 ## Formulário
 
-O formulário de cadastro inclui diferentes tipos de campos:
+O projeto possui um formulário de cadastro de treinador com diferentes tipos de campos.
 
-- Texto.
-- Senha.
-- Número.
-- E-mail.
-- URL.
-- Área de texto.
-- Checkbox.
-- Radio.
-- Select.
-- Data.
-- Horário.
-- Cor.
+Entre eles estão:
 
-Entre as validações implementadas estão:
+- nome;
+- senha;
+- idade;
+- e-mail;
+- URL;
+- data;
+- horário;
+- seleção de cor;
+- opções de escolha;
+- área para comentários.
 
-- E-mail obrigatório quando o usuário solicita novidades.
-- Seleção exclusiva do nível de experiência.
-- Validação de idade entre 10 e 120 anos.
-- Bloqueio de datas de nascimento inválidas.
-- Limite de 500 caracteres no campo de comentários.
-- Impedimento do redimensionamento manual da área de texto.
+Também foram implementadas validações com JavaScript, como limite de idade, contador de caracteres e validações relacionadas ao preenchimento dos campos.
+
+## Quiz Pokémon
+
+O projeto também possui uma página de Quiz Pokémon.
+
+O quiz apresenta perguntas de múltipla escolha e utiliza JavaScript para controlar as respostas, a pontuação e o andamento das perguntas.
 
 ## Compatibilidade
 
-O projeto foi testado nos seguintes navegadores:
+A versão final foi testada nos seguintes navegadores:
 
-- Google Chrome.
-- Mozilla Firefox.
+- Google Chrome;
+- Mozilla Firefox;
 - Microsoft Edge.
 
-As capturas e versões dos navegadores utilizados encontram-se nas pastas de evidências do projeto.
+Nos testes realizados, o projeto manteve seu funcionamento e organização visual nos três navegadores.
 
-## Validação de código
+As evidências dos testes estão disponíveis no projeto.
 
-Os seguintes arquivos foram validados:
+## Validação do código
 
-- `index.html`: aprovado no W3C Nu HTML Checker.
-- `pokedex.html`: aprovado no W3C Nu HTML Checker.
-- `css/styles.css`: aprovado no W3C CSS Validator.
+Os principais arquivos HTML foram testados utilizando o W3C Nu HTML Checker:
 
-As evidências estão disponíveis em:
+- `index.html`;
+- `pokedex.html`;
+- `Quiz.html`.
+
+Após as correções realizadas, os três arquivos foram validados sem erros ou avisos.
+
+O arquivo:
 
 ```text
-evidencias/w3c-index-html.png
-evidencias/w3c-pokedex-html.png
-evidencias/w3c-css.png
+css/styles.css
 ```
+
+também foi validado utilizando o W3C CSS Validator.
+
+As capturas dessas validações estão disponíveis na pasta `evidencias`.
 
 ## Desempenho
 
-O projeto foi avaliado com o Google Lighthouse nas categorias:
+A versão final do projeto foi avaliada com o Google Lighthouse no modo mobile.
 
-- Performance.
-- Acessibilidade.
-- Boas práticas.
-- SEO.
+Os resultados finais foram:
 
-As capturas das auditorias estão disponíveis na pasta de evidências.
+- Performance: 98;
+- Accessibility: 100;
+- Best Practices: 100;
+- SEO: 100.
 
-Uma nova auditoria deverá ser executada após a conclusão de todas as alterações da interface.
+Também foi realizada uma medição de interação utilizando o Chrome DevTools, com resultado de INP de 67 ms.
+
+As capturas dos testes estão disponíveis na pasta `evidencias`.
 
 ## Uso de inteligência artificial
 
-A ferramenta ChatGPT, da OpenAI, foi utilizada como apoio durante o desenvolvimento para:
+Durante o desenvolvimento utilizei o ChatGPT como ferramenta de apoio em alguns momentos do projeto.
 
-- Esclarecimento de dúvidas sobre HTML, CSS, JavaScript e Git.
-- Sugestão de estruturas semânticas.
-- Organização de layouts responsivos.
-- Implementação e revisão de recursos de acessibilidade.
-- Apoio na criação do carrossel e de seus controles.
-- Apoio na implementação das validações do formulário.
-- Sugestão de melhorias visuais para a interface.
-- Auxílio na interpretação de mensagens dos validadores W3C.
-- Apoio na organização da documentação.
+A ferramenta foi utilizada principalmente para:
 
-As sugestões foram revisadas, adaptadas e testadas pelo estudante antes de sua incorporação ao projeto.
+- esclarecer dúvidas sobre HTML, CSS, JavaScript e Git;
+- analisar problemas encontrados nos testes do Lighthouse;
+- sugerir alternativas para melhorar o desempenho do carrossel;
+- ajudar a interpretar mensagens dos validadores do W3C;
+- revisar alguns pontos de acessibilidade;
+- auxiliar na organização do README e do relatório;
+- auxiliar na criação dos wireframes utilizados como documentação da interface.
 
-O detalhamento das finalidades, trechos produzidos, alterações realizadas e avaliação crítica será apresentado no relatório técnico.
+As sugestões não foram aplicadas automaticamente. Elas foram analisadas e, quando necessário, modificadas ou descartadas de acordo com os testes realizados no projeto.
 
-## Fontes de imagens e informações
+O uso de inteligência artificial e a avaliação das sugestões estão detalhados no relatório do trabalho.
 
-As imagens dos Pokémon são carregadas por meio dos recursos disponibilizados pelo projeto PokéAPI.
+## Imagens e conteúdo
 
-Pokémon e os personagens associados pertencem aos seus respectivos detentores de direitos. Este projeto possui finalidade exclusivamente acadêmica e não comercial.
+As imagens dos Pokémon utilizadas no projeto são carregadas a partir de recursos disponibilizados pela PokéAPI.
 
-A execução da interface pode ser realizada localmente. Entretanto, o carregamento das imagens externas e do vídeo depende de conexão com a internet.
+Pokémon e seus personagens pertencem aos seus respectivos detentores de direitos.
+
+Este projeto foi desenvolvido apenas para fins acadêmicos e não possui finalidade comercial.
+
+Como algumas imagens e conteúdos são carregados externamente, é necessário acesso à internet para que todos os elementos sejam exibidos corretamente.
 
 ## Repositório
 
@@ -218,4 +241,5 @@ https://github.com/luisfccf/scom-trabalho-1
 
 ## Autor
 
-Luís Felipe Cunha Canno Ferreira.
+Luís Felipe Cunha Canno Ferreira  
+Engenharia de Controle e Automação — UNESP
